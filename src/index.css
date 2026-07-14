@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+
+  --color-primary-container: #e50914;
+  --color-background: #131313;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1b1b1b;
+  --color-surface-container: #1f1f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353535;
+  --color-surface-variant: #353535;
+  --color-on-surface: #e2e2e2;
+  --color-on-surface-variant: #e9bcb6;
+  --color-outline-variant: #5e3f3b;
+  --color-secondary: #c6c6c7;
+  --color-on-primary-container: #fff7f6;
+  --color-inverse-surface: #e2e2e2;
+  --color-inverse-on-surface: #303030;
+  --color-on-secondary-fixed: #1a1c1c;
+  --color-outline: #af8782;
+}
+
+@layer base {
+  body {
+    background-color: #131313;
+    color: #e2e2e2;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* Scrollbar Hide Utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom transitions and overlays */
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hero-gradient {
+  background: linear-gradient(to top, #131313 0%, rgba(19, 19, 19, 0.7) 40%, transparent 100%);
+}
+
+.fade-bottom {
+  mask-image: linear-gradient(to top, transparent, black 15%);
+}
+
+.netflix-glow:hover {
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
+  border-color: #e50914;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "DEVFLIX",
+  "description": "A cinematic developer portfolio inspired by premium streaming platforms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
