@@ -17,7 +17,7 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   return (
-    <section className="relative h-[80vh] md:h-[870px] w-full flex items-end pb-20 px-[4%] md:px-12 overflow-hidden">
+    <section className="relative min-h-[85vh] md:h-[870px] w-full flex items-start md:items-end pt-4 md:pt-0 pb-20 px-[4%] md:px-12 overflow-hidden">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         <div
@@ -36,7 +36,7 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
           <span className="text-secondary tracking-widest text-xs font-bold uppercase">Original Developer</span>
         </div>
 
-        <h1 className="font-bebas text-7xl md:text-[120px] text-on-surface leading-none mb-6 tracking-wide drop-shadow-xl select-none">
+        <h1 className="font-bebas text-6xl sm:text-7xl md:text-[120px] text-on-surface leading-tight pt-2 mb-3 tracking-wide drop-shadow-xl select-none">
           KARAM ARORA
         </h1>
 
