@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Project, SkillCategory, Notification } from "./types";
+import { Project, SkillCategory, Notification, ActiveFocus, Review } from "./types";
 
 export const MY_PROFILE = {
   name: "Karam Arora",
@@ -12,9 +12,35 @@ export const MY_PROFILE = {
   portraitUrl: "/avatar.png",
   workspaceBackground: "/bg.png",
   bio: "Backend engineer with 2 years of production experience building scalable APIs, event-driven pipelines, and cloud-native systems on AWS. Applied that foundation to AI — designing retrieval systems, agentic pipelines, and LLM infrastructure that solves real accuracy and scalability problems.",
-  genres: ["Python", "FastAPI", "AWS"],
+  genres: ["Python", "FastAPI", "AWS", "NoSQL", "LangGraph", "Docker"],
   resumeUrl: "https://drive.google.com/file/d/1lfaIxNrlx4yEGvB8Bmnc4nuzgQ91gY8Y/view?usp=drive_link"
 };
+
+export const ACTIVE_FOCUS_DATA: ActiveFocus[] = [
+  {
+    id: "active_1",
+    title: "Software Developer",
+    role: "Backend & AI Systems Builder",
+    company: "Genpact",
+    progress: 100,
+    duration: "Jul 2024 - Present",
+    description: "Designing and scaling cloud-native REST APIs, event-driven message queues, and high-performance retrieval-augmented generation (RAG) pipelines on AWS. Orchestrating containerized microservices and optimizing database transaction speeds.",
+    posterUrl: "/multimodal_rag.png",
+    status: "ACTIVE NOW"
+  },
+  {
+    id: "active_2",
+    title: "Application Engineering Intern",
+    role: "Cloud Backend Developer",
+    company: "Genpact",
+    progress: 100,
+    duration: "Jan 2024 - Jun 2024",
+    description: "Assisted in containerizing legacy backend APIs using Docker and orchestrated multi-stage builds. Contributed to asynchronous endpoint integrations, testing automation, and database indexing schema designs.",
+    posterUrl: "/tenantguard.png",
+    status: "COMPLETED"
+  }
+];
+
 export const PROJECTS_DATA: Project[] = [
   {
     id: "multimodal_rag",
@@ -23,7 +49,7 @@ export const PROJECTS_DATA: Project[] = [
     year: "2024",
     level: "Expert",
     edition: "Production Series",
-    genres: ["AWS Bedrock", "OpenSearch", "S3"],
+    genres: ["AWS", "OpenSearch", "S3", "Python","Backend","Gen AI"],
     description: "Designed and delivered a multimodal RAG system supporting text and image retrieval from internal documents. Handles 1,000 concurrent users under a sub-10s latency target, improving image retrieval accuracy by 70% using LLM-generated contextual descriptions.",
     posterUrl: "/multimodal_rag.png",
     billboardUrl: "/bg.png",
@@ -50,6 +76,24 @@ export const PROJECTS_DATA: Project[] = [
         description: "Implemented a hybrid search pipeline combining BM25 keyword matching with vector search and a reranking stage to fix Titan Text v2 embedding limitations, achieving +20% correctness.",
         thumbnailUrl: "/skill_bg.png"
       }
+    ],
+    reviews: [
+      {
+        id: "rev_rag1",
+        author: "Sarah Jenkins",
+        role: "Director of Product, CloudScale AI",
+        text: "The multimodal RAG system transformed our document retrieval process. The integration of Titan Text v2 with BM25 hybrid search was a masterstroke.",
+        rating: 5,
+        date: "October 2024"
+      },
+      {
+        id: "rev_rag2",
+        author: "Devon Miller",
+        role: "Principal Architect",
+        text: "Very impressive sub-10s latency even under heavy stress testing. The LLM-generated contextual description approach is incredibly elegant.",
+        rating: 5,
+        date: "November 2024"
+      }
     ]
   },
   {
@@ -59,7 +103,7 @@ export const PROJECTS_DATA: Project[] = [
     year: "2024",
     level: "Expert",
     edition: "Open Source Release",
-    genres: ["FastAPI", "PostgreSQL", "Redis"],
+    genres: ["FastAPI", "PostgreSQL", "Redis", "Security","Backend","Python"],
     description: "Architected a secure, multi-tenant SaaS backend with strict data isolation at the database layer using Row-Level Security (RLS), preventing cross-tenant leaks. Implemented RBAC, rate-limiting, and metered billing.",
     posterUrl: "/tenantguard.png",
     billboardUrl: "/bg.png",
@@ -93,6 +137,24 @@ export const PROJECTS_DATA: Project[] = [
         description: "Designed asynchronous order management, usage metering, and invoice status transitions (draft -> issued -> paid).",
         thumbnailUrl: "/skill_bg.png"
       }
+    ],
+    reviews: [
+      {
+        id: "rev_tg1",
+        author: "Alex Rivera",
+        role: "CTO, LeaseTech",
+        text: "Enforcing multi-tenancy boundaries at the database layer via RLS is standard best-practice, and this implementation is flawless. Sub-10ms query times verified.",
+        rating: 5,
+        date: "September 2024"
+      },
+      {
+        id: "rev_tg2",
+        author: "Marcus Chen",
+        role: "DevSecOps Lead",
+        text: "The Redis sliding-window rate limiter handles bursts with ease. Excellent security posture and clean code patterns.",
+        rating: 4.8,
+        date: "August 2024"
+      }
     ]
   },
   {
@@ -102,11 +164,11 @@ export const PROJECTS_DATA: Project[] = [
     year: "2024",
     level: "Advanced",
     edition: "AI Automation Tool",
-    genres: ["LangGraph", "ChromaDB", "Python"],
+    genres: ["LangGraph", "ChromaDB", "Python", "Gen AI"],
     description: "Built an intelligent 3-agent LangGraph pipeline that converts user stories and acceptance criteria into executable integration tests, achieving a 70% pass rate across a 20-API backend.",
     posterUrl: "/testgen.png",
     billboardUrl: "/bg.png",
-    techStack: "LangGraph, ChromaDB, Python, OpenAPI, Async Execution, ChromaDB",
+    techStack: "LangGraph, ChromaDB, Python, OpenAPI, Async Execution, ChromaDB,Gen AI",
     role: "AI Developer",
     duration: "4 Months",
     proficiency: [
@@ -129,6 +191,16 @@ export const PROJECTS_DATA: Project[] = [
         description: "Used vector search over OpenAPI specifications to automatically discover and map endpoints for test cases.",
         thumbnailUrl: "/skill_bg.png"
       }
+    ],
+    reviews: [
+      {
+        id: "rev_tg_ai1",
+        author: "Liam Zhao",
+        role: "Head of QA Automation",
+        text: "Converting user stories directly to integration tests using LangGraph agents reduced our cycle times by 60%. Highly robust output.",
+        rating: 5,
+        date: "July 2024"
+      }
     ]
   },
   {
@@ -138,7 +210,7 @@ export const PROJECTS_DATA: Project[] = [
     year: "2024",
     level: "Advanced",
     edition: "Enterprise Series",
-    genres: ["DynamoDB", "AWS Lambda", "SQS"],
+    genres: ["DynamoDB", "AWS", "SQS", "NoSQL","Database"],
     description: "Designed stock management database schemas handling 400K+ SKUs using DynamoDB single-table design with GSIs, achieving single-digit millisecond latency. Built a fault-tolerant async ingestion pipeline.",
     posterUrl: "/warehouse.png",
     billboardUrl: "/bg.png",
@@ -164,6 +236,16 @@ export const PROJECTS_DATA: Project[] = [
         version: "v1.0",
         description: "Implemented SQS ingestion with structured retry policies, exponential backoff, and dead-letter queue (DLQ) recovery.",
         thumbnailUrl: "/skill_bg.png"
+      }
+    ],
+    reviews: [
+      {
+        id: "rev_wh1",
+        author: "Sophia Patel",
+        role: "VP of Logistics, CommerceFlow",
+        text: "Managing 400K SKUs on DynamoDB is notoriously hard for relational queries, but the single-table GSI modeling here was executed masterfully.",
+        rating: 5,
+        date: "May 2024"
       }
     ]
   }
