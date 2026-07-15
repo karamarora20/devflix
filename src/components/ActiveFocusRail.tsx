@@ -9,10 +9,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ActiveFocusProps {
-  items: ActiveFocus[];
+  item: ActiveFocus;
 }
 
-export default function ActiveFocusRail({ items }: ActiveFocusProps) {
+export default function ActiveFocusRail({ item }: ActiveFocusProps) {
   const [selectedFocus, setSelectedFocus] = useState<ActiveFocus | null>(null);
 
   return (
@@ -25,7 +25,6 @@ export default function ActiveFocusRail({ items }: ActiveFocusProps) {
       </div>
 
       <div className="flex overflow-x-auto gap-5 pb-8 hide-scrollbar snap-x scroll-smooth">
-        {items.map((item) => (
           <div
             key={item.id}
             onClick={() => setSelectedFocus(item)}
@@ -94,7 +93,7 @@ export default function ActiveFocusRail({ items }: ActiveFocusProps) {
               </div>
             </div>
           </div>
-        ))}
+        
       </div>
 
       {/* Focus Sprints Details Modal Overlay */}

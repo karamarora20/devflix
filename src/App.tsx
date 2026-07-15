@@ -176,7 +176,7 @@ export default function App() {
             }} />
             
             {/* Active Focus ("Continue Watching") Sprints */}
-            <ActiveFocusRail items={ACTIVE_FOCUS_DATA} />
+            <ActiveFocusRail item={ACTIVE_FOCUS_DATA[0]} />
 
             {/* Curated Rail 1: Trending Now / Blockbuster Matches */}
             <ProjectRail
