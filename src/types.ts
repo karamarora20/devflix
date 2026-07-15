@@ -16,6 +16,27 @@ export interface Proficiency {
   percentage: number;
 }
 
+export interface Review {
+  id: string;
+  author: string;
+  role: string;
+  text: string;
+  rating: number;
+  date: string;
+}
+
+export interface ActiveFocus {
+  id: string;
+  title: string;
+  role: string;
+  company: string;
+  progress: number; // percentage of completion/mastery or timeline progress
+  duration: string;
+  description: string;
+  posterUrl: string;
+  status: "ACTIVE NOW" | "COMPLETED" | "UPCOMING SEASON";
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -32,6 +53,7 @@ export interface Project {
   role: string;
   duration: string;
   proficiency: Proficiency[];
+  reviews?: Review[];
 }
 
 export interface Skill {
