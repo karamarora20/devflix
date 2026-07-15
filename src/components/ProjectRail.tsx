@@ -4,15 +4,16 @@
  */
 
 import { Project } from "../types";
-import { ChevronRight, Heart, Share2, Play } from "lucide-react";
+import { ChevronRight, Play } from "lucide-react";
 import { useRef, useEffect } from "react";
 
 interface ProjectRailProps {
+  title?: string;
   projects: Project[];
   onProjectClick: (id: string) => void;
 }
 
-export default function ProjectRail({ projects, onProjectClick }: ProjectRailProps) {
+export default function ProjectRail({ title = "My List", projects, onProjectClick }: ProjectRailProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,7 +58,7 @@ export default function ProjectRail({ projects, onProjectClick }: ProjectRailPro
     <section className="py-16 px-[4%] md:px-12 relative z-20 -mt-24 md:-mt-32">
       <div className="flex justify-between items-center mb-6">
         <h2 className="font-bebas text-3xl md:text-4xl text-on-surface tracking-wide">
-          My List
+          {title}
         </h2>
         <span className="text-xs text-secondary/70 flex items-center gap-1 cursor-pointer hover:text-on-surface transition-colors">
           Swipe/Scroll Left
