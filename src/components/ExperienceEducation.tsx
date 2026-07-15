@@ -46,7 +46,7 @@ export default function ExperienceEducation() {
   };
 
   return (
-    <section className="py-16 px-[4%] md:px-12 relative z-20 max-w-7xl mx-auto space-y-12">
+    <section className="py-16 px-[4%] md:px-12 relative z-20 space-y-12">
       {/* Visual Header */}
       <div>
         <div className="flex items-center gap-2 mb-1.5 text-primary-container font-mono text-xs font-bold tracking-widest uppercase">
