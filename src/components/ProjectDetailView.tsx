@@ -38,7 +38,7 @@ export default function ProjectDetailView({
       </button>
 
       {/* Hero Section (Massive Billboard) */}
-      <section className="relative w-full h-[65vh] md:h-[820px] flex items-end justify-start overflow-hidden">
+      <section className="relative w-full min-h-[70vh] md:h-[820px] flex items-start md:items-end justify-start pt-4 md:pt-0 overflow-hidden">
         {/* Background Image Container */}
         <div className="absolute inset-0 w-full h-full z-0">
           <div 
@@ -67,7 +67,7 @@ export default function ProjectDetailView({
           </div>
 
           {/* Title */}
-          <h1 className="font-bebas text-4xl md:text-7xl lg:text-[85px] leading-none text-on-surface uppercase mb-4 mt-2 drop-shadow-xl select-none">
+          <h1 className="font-bebas text-4xl md:text-7xl lg:text-[85px] leading-tight pt-1 text-on-surface uppercase mb-2 mt-1 drop-shadow-xl select-none">
             {project.title}
           </h1>
 

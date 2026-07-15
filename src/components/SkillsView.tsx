@@ -19,7 +19,7 @@ export default function SkillsView({ categories }: SkillsViewProps) {
   return (
     <main className="flex-1 w-full relative pb-24">
       {/* Hero Section: Ongoing Mastery (Server Room background) */}
-      <section className="relative w-full h-[60vh] md:h-[820px] flex items-end justify-start overflow-hidden">
+      <section className="relative w-full min-h-[65vh] md:h-[820px] flex items-start md:items-end justify-start pt-4 md:pt-0 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div 
             className="w-full h-full bg-cover bg-center"
@@ -37,7 +37,7 @@ export default function SkillsView({ categories }: SkillsViewProps) {
             <h2 className="font-bebas text-2xl md:text-3xl text-primary-container mb-2 tracking-wider">
               Ongoing Mastery
             </h2>
-            <h1 className="font-bebas text-5xl md:text-[96px] text-on-surface mb-4 leading-none tracking-wide">
+            <h1 className="font-bebas text-5xl md:text-[96px] text-on-surface mb-2 leading-tight pt-1 tracking-wide">
               FASTAPI &amp; CLOUD INFRASTRUCTURE
             </h1>
             <p className="font-sans text-sm md:text-base text-secondary mb-8 max-w-2xl leading-relaxed">
