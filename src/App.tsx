@@ -5,17 +5,19 @@
 
 import { useState, useEffect } from "react";
 import { Project, SkillCategory, Notification, Message } from "./types";
-import { PROJECTS_DATA, SKILLS_DATA, MOCK_NOTIFICATIONS, MY_PROFILE } from "./data";
+import { PROJECTS_DATA, SKILLS_DATA, MOCK_NOTIFICATIONS, ACTIVE_FOCUS_DATA, MY_PROFILE } from "./data";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import Billboard from "./components/Billboard";
 import ProjectRail from "./components/ProjectRail";
+import ActiveFocusRail from "./components/ActiveFocusRail";
+import ProjectsCatalog from "./components/ProjectsCatalog";
 import ProjectDetailView from "./components/ProjectDetailView";
-import ProjectsCatalogView from "./components/ProjectsCatalogView";
 import SkillsView from "./components/SkillsView";
 import ContactView from "./components/ContactView";
 import SearchModal from "./components/SearchModal";
 import NotificationsDropdown from "./components/NotificationsDropdown";
-import Footer from "./components/Footer";
+import ExperienceEducation from "./components/ExperienceEducation";
 import { Star, Code, ArrowRight, Play, Heart } from "lucide-react";
 
 export default function App() {
@@ -131,7 +133,7 @@ export default function App() {
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   return (
-    <div className="bg-background text-on-surface flex flex-col min-h-screen relative font-sans antialiased">
+    <div className="bg-background text-on-surface flex flex-col min-h-screen font-sans antialiased">
       {/* Navigation Header */}
       <NavBar
         activeTab={activeTab}
@@ -144,49 +146,58 @@ export default function App() {
       />
 
       {/* Floating Notifications Dropdown Panel */}
-      {/* <NotificationsDropdown
+      <NotificationsDropdown
         isOpen={notificationsOpen}
         onClose={() => setNotificationsOpen(false)}
         notifications={notifications}
         onMarkRead={handleMarkRead}
         onMarkAllRead={handleMarkAllRead}
-      /> */}
+      />
 
       {/* Search Bar Screen Overlay */}
-      {/* <SearchModal
+      <SearchModal
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}
         projects={PROJECTS_DATA}
         skillsCategories={SKILLS_DATA}
         onProjectClick={handleProjectSelectFromSearch}
         onSkillClick={handleSkillSelectFromSearch}
-      /> */}
+      />
 
       {/* Main Views Router */}
       <div className="flex-1 w-full pt-20 md:pt-0">
         {activeTab === "home" && (
-          <div className="animate-fade-in">
+          <div className="animate-fade-in space-y-2 md:space-y-4">
             {/* Billboard Hero */}
             <Billboard onPlayClick={() => {
-              setSelectedProjectId("genesis");
+              setSelectedProjectId("multimodal_rag");
               setActiveTab("projects");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
+            
+            {/* Active Focus ("Continue Watching") Sprints */}
+            <ActiveFocusRail items={ACTIVE_FOCUS_DATA} />
 
-            {/* Projects Horizontal Rails list */}
+            {/* Curated Rail 1: Trending Now / Blockbuster Matches */}
             <ProjectRail
-              projects={PROJECTS_DATA}
+              title="Trending Now"
+              projects={PROJECTS_DATA.filter((p) => p.matchScore >= 96)}
               onProjectClick={(id) => {
                 setSelectedProjectId(id);
                 setActiveTab("projects");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
+
+            {/* Resume Credits: Experience and Education Section */}
+            <ExperienceEducation />
           </div>
         )}
 
         {activeTab === "projects" && (
           <div className="animate-fade-in">
+            {selectedProjectId ? (
+              // Specific Detailed Project page (Project Genesis, etc)
               <ProjectDetailView
                 project={PROJECTS_DATA.find((p) => p.id === selectedProjectId) || PROJECTS_DATA[0]}
                 allProjects={PROJECTS_DATA}
@@ -197,6 +208,16 @@ export default function App() {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               />
+            ) : (
+              // Highly Interactive Projects Catalog Browser View (Filters, Sorter, Stats)
+              <ProjectsCatalog
+                projects={PROJECTS_DATA}
+                onProjectSelect={(id) => {
+                  setSelectedProjectId(id);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              />
+            )}
           </div>
         )}
 
