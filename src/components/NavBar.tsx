@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Home, Award, Mail, Download } from "lucide-react";
+import { Home, Award, Mail, Download, Film } from "lucide-react";
 import { MY_PROFILE } from "../data";
 
 interface NavBarProps {
@@ -56,6 +56,13 @@ export default function NavBar({
               Home
             </button>
             <button
+              onClick={() => handleTabClick("projects")}
+              className={`font-semibold text-sm transition-all duration-200 hover:scale-105 hover:text-on-surface ${activeTab === "projects" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
+                }`}
+            >
+              Projects
+            </button>
+            <button
               onClick={() => handleTabClick("skills")}
               className={`font-semibold text-sm transition-all duration-200 hover:scale-105 hover:text-on-surface ${activeTab === "skills" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
                 }`}
@@ -98,7 +105,7 @@ export default function NavBar({
       </nav>
 
       {/* Mobile Top Header (Visible only on small screens) */}
-      <header className="md:hidden fixed w-full top-0 z-50 bg-gradient-to-b from-black/90 to-transparent p-4 flex justify-between items-center h-16 backdrop-blur-[2px]">
+      <header className="md:hidden fixed top-0 left-0 right-0 z-[100] bg-background/95 border-b border-white/5 p-4 flex justify-between items-center h-16 backdrop-blur-md">
         <span
           onClick={() => handleTabClick("home")}
           className="font-bebas text-2xl text-primary-container tracking-tighter"
@@ -116,13 +123,21 @@ export default function NavBar({
       </header>
 
       {/* Mobile Bottom Navigation Bar */}
-      <nav className="md:hidden fixed bottom-0 w-full bg-surface-container-lowest/95 border-t border-surface-variant/30 z-50 px-6 py-3 flex justify-between items-center backdrop-blur-md">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest/95 border-t border-surface-variant/30 z-[999] px-6 pt-3 pb-5 flex justify-between items-center backdrop-blur-md">
         <button
           onClick={() => handleTabClick("home")}
           className={`flex flex-col items-center gap-1 ${activeTab === "home" ? "text-primary-container font-bold" : "text-secondary"}`}
         >
           <Home className="w-5 h-5" />
           <span className="text-[10px] font-medium">Home</span>
+        </button>
+
+        <button
+          onClick={() => handleTabClick("projects")}
+          className={`flex flex-col items-center gap-1 ${activeTab === "projects" ? "text-primary-container font-bold" : "text-secondary"}`}
+        >
+          <Film className="w-5 h-5" />
+          <span className="text-[10px] font-medium">Projects</span>
         </button>
 
         <button
