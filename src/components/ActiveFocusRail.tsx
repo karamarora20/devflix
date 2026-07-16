@@ -16,7 +16,7 @@ export default function ActiveFocusRail({ item }: ActiveFocusProps) {
   const [selectedFocus, setSelectedFocus] = useState<ActiveFocus | null>(null);
 
   return (
-    <section className="py-12 px-[4%] md:px-12 relative z-20 -mt-20 md:-mt-24">
+    <section className={`py-12 px-[4%] md:px-12 relative -mt-20 md:-mt-24 transition-all duration-300 ${selectedFocus ? "z-[999]" : "z-20"}`}>
       <div className="flex items-center gap-2 mb-6">
         <Flame className="w-5 h-5 text-red-500 animate-pulse" />
         <h2 className="font-bebas text-3xl md:text-4xl text-on-surface tracking-wide">
@@ -25,81 +25,81 @@ export default function ActiveFocusRail({ item }: ActiveFocusProps) {
       </div>
 
       <div className="flex overflow-x-auto gap-5 pb-8 hide-scrollbar snap-x scroll-smooth">
-        <div
-          key={item.id}
-          onClick={() => setSelectedFocus(item)}
-          className="min-w-[280px] md:min-w-[340px] bg-surface-container-high rounded-md overflow-hidden group cursor-pointer snap-start flex-shrink-0 border border-white/5 hover:border-red-500/40 transition-all duration-300 shadow-md"
-          id={`active-focus-${item.id}`}
-        >
-          {/* Visual Header / Poster Container */}
-          <div className="aspect-[16/10] overflow-hidden relative">
-            <img
-              className="w-full h-full object-cover transition-transform duration-500"
-              src={item.posterUrl}
-              alt={item.title}
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        
+          <div
+            key={item.id}
+            onClick={() => setSelectedFocus(item)}
+            className="w-[280px] max-w-[85vw] md:w-[340px] md:min-w-[340px] md:max-w-none bg-surface-container-high rounded-md overflow-hidden group cursor-pointer snap-start flex-shrink-0 border border-white/5 hover:border-red-500/40 transition-all duration-300 shadow-md"
+            id={`active-focus-${item.id}`}
+          >
+            {/* Visual Header / Poster Container */}
+            <div className="aspect-[16/10] overflow-hidden relative">
+              <img
+                className="w-full h-full object-cover transition-all duration-300"
+                src={item.posterUrl}
+                alt={item.title}
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              
+              {/* Active Status Badge */}
+              <span className="absolute top-3 left-3 bg-red-600 text-white font-mono text-[9px] font-extrabold px-2 py-0.5 rounded tracking-widest flex items-center gap-1 shadow-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+                {item.status}
+              </span>
 
-            {/* Active Status Badge */}
-            <span className="absolute top-3 left-3 bg-red-600 text-white font-mono text-[9px] font-extrabold px-2 py-0.5 rounded tracking-widest flex items-center gap-1 shadow-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-              {item.status}
-            </span>
-
-            {/* Company Indicator */}
-            <span className="absolute bottom-3 left-3 text-white/90 text-xs font-semibold drop-shadow font-mono">
-              {item.company}
-            </span>
-          </div>
-
-          {/* Custom Watch Progress Bar */}
-          <div className="w-full h-1 bg-white/20 relative">
-            <div
-              className="h-full bg-red-600 transition-all duration-500"
-              style={{ width: `${item.progress}%` }}
-            />
-          </div>
-
-          {/* Progress Label and Content */}
-          <div className="p-4 space-y-2">
-            <div className="flex justify-between items-center text-xs text-secondary/70 font-mono">
-              <span>{item.duration}</span>
-              <span className="text-red-500 font-bold">
-                {item.status === "ACTIVE NOW" ? "Current Role" : "Completed Season"}
+              {/* Company Indicator */}
+              <span className="absolute bottom-3 left-3 text-white/90 text-xs font-semibold drop-shadow font-mono">
+                {item.company}
               </span>
             </div>
 
-            <h3 className="font-bebas text-2xl text-on-surface tracking-wide group-hover:text-red-500 transition-colors">
-              {item.title}
-            </h3>
+            {/* Custom Watch Progress Bar */}
+            <div className="w-full h-1 bg-white/20 relative">
+              <div 
+                className="h-full bg-red-600 transition-all duration-500" 
+                style={{ width: `${item.progress}%` }}
+              />
+            </div>
 
-            <p className="text-xs text-secondary font-medium leading-relaxed truncate">
-              {item.role}
-            </p>
+            {/* Progress Label and Content */}
+            <div className="p-4 space-y-2">
+              <div className="flex justify-between items-center text-xs text-secondary/70 font-mono">
+                <span>{item.duration}</span>
+                <span className="text-red-500 font-bold">
+                  {item.status === "ACTIVE NOW" ? "Current Role" : "Completed Season"}
+                </span>
+              </div>
 
-            <p className="text-[11px] text-secondary/80 line-clamp-2 leading-relaxed">
-              {item.description}
-            </p>
+              <h3 className="font-bebas text-2xl text-on-surface tracking-wide group-hover:text-red-500 transition-colors">
+                {item.title}
+              </h3>
 
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-[10px] text-red-500/80 hover:text-red-500 font-bold tracking-wider uppercase flex items-center gap-1">
-                <Play className="w-3 h-3 fill-red-500 text-red-500" />
-                Review Role Details
-              </span>
-              <span className="text-[10px] text-secondary/65 group-hover:text-on-surface transition-colors">
-                Tap for Details
-              </span>
+              <p className="text-xs text-secondary font-medium leading-relaxed truncate">
+                {item.role}
+              </p>
+              
+              <p className="text-[11px] text-secondary/80 line-clamp-2 leading-relaxed">
+                {item.description}
+              </p>
+              
+              <div className="flex items-center justify-between pt-2">
+                <span className="text-[10px] text-red-500/80 hover:text-red-500 font-bold tracking-wider uppercase flex items-center gap-1">
+                  <Play className="w-3 h-3 fill-red-500 text-red-500" />
+                  Review Role Details
+                </span>
+                <span className="text-[10px] text-secondary/65 group-hover:text-on-surface transition-colors">
+                  Tap for Details
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-
       </div>
 
       {/* Focus Sprints Details Modal Overlay */}
       <AnimatePresence>
         {selectedFocus && (
-          <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -108,7 +108,7 @@ export default function ActiveFocusRail({ item }: ActiveFocusProps) {
               id="active-focus-modal"
             >
               {/* Close Button */}
-              <button
+              <button 
                 onClick={() => setSelectedFocus(null)}
                 className="absolute top-4 right-4 z-10 bg-black/60 hover:bg-black/90 text-white w-8 h-8 rounded-full flex items-center justify-center border border-white/10 cursor-pointer transition-colors"
               >
@@ -116,8 +116,8 @@ export default function ActiveFocusRail({ item }: ActiveFocusProps) {
               </button>
 
               <div className="aspect-video relative overflow-hidden">
-                <img
-                  src={selectedFocus.posterUrl}
+                <img 
+                  src={selectedFocus.posterUrl} 
                   alt={selectedFocus.title}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
