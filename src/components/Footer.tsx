@@ -11,7 +11,7 @@ export default function Footer({setActiveTab}:{
         <footer className="w-full py-12 mt-auto border-t border-white/5 bg-surface-container-lowest text-secondary text-sm">
         <div className="max-w-7xl mx-auto px-[4%] md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1 mb-4 md:mb-0">
-            <span className="font-bebas text-3xl text-primary-container tracking-tighter">DEVFLIX</span>
+            <span className="font-bebas text-3xl text-primary-container tracking-tighter">PORTFOLIO</span>
             <p className="text-xs text-secondary/50 mt-1">Immersive Developer Portfolio of Karam Arora.</p>
           </div>
 
