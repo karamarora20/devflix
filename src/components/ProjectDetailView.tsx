@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { Project } from "../types";
-import { Play, Code, CheckCircle, Sparkles, Terminal, Shield, ArrowLeft } from "lucide-react";
+import { Play, Code, Sparkles, Terminal, Shield, ArrowLeft, Lock } from "lucide-react";
 
 interface ProjectDetailViewProps {
   project: Project;
@@ -98,15 +98,25 @@ export default function ProjectDetailView({
               Live Demo
             </button>
             
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noreferrer"
-              className="bg-surface-variant/80 backdrop-blur text-on-surface px-8 py-3 rounded-md font-bold text-sm md:text-base flex items-center justify-center gap-2 hover:bg-surface-container-highest transition-all duration-300 border border-white/10 hover:scale-[1.03]"
-            >
-              <Code className="w-4 h-4" />
-              View Code
-            </a>
+            {project.url ? (
+              <a 
+                href={project.url}
+                target="_blank" 
+                rel="noreferrer"
+                className="bg-surface-variant/80 backdrop-blur text-on-surface px-8 py-3 rounded-md font-bold text-sm md:text-base flex items-center justify-center gap-2 hover:bg-surface-container-highest transition-all duration-300 border border-white/10 hover:scale-[1.03]"
+              >
+                <Code className="w-4 h-4" />
+                View Code
+              </a>
+            ) : (
+              <div 
+                className="bg-surface-container-high/40 text-secondary/80 px-8 py-3 rounded-md font-bold text-xs md:text-sm flex items-center justify-center gap-2 border border-white/10 cursor-default select-none group"
+                title="This is a proprietary production system built for enterprise workflows."
+              >
+                <Lock className="w-4 h-4 text-red-500 group-hover:animate-bounce" />
+                <span>Enterprise Product (Proprietary)</span>
+              </div>
+            )}
           </div>
         </div>
       </section>
