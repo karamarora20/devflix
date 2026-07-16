@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Briefcase, GraduationCap, Calendar, Award, BookOpen, Layers } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, Award, CheckCircle2, Layers } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function ExperienceEducation() {
@@ -14,12 +14,14 @@ export default function ExperienceEducation() {
       period: "Jul 2024 - Present",
       location: "Bengaluru, India",
       achievements: [
-        "Designed and delivered a multimodal RAG system supporting text and image searches, scaling smoothly to 1,000+ concurrent sessions.",
-        "Engineered reliable asynchronous backends and automated event-driven messaging queues using FastAPI and Python.",
-        "Optimized vector search capabilities with BM25 hybrid indexing and Cohere reranking architectures, achieving high correctness.",
-        "Maintained scalable, secure Docker containers deployed within Amazon Web Services (AWS) ecosystem."
+        "Led the design and development of a multimodal RAG platform on AWS using Bedrock, OpenSearch, and S3.",
+        "Improved image retrieval accuracy by 70% by replacing OCR-based extraction with LLM-generated contextual descriptions.",
+        "Engineered hybrid search pipelines (BM25 + Vector Search + Reranking) to improve retrieval quality.",
+        "Designed DynamoDB single-table schemas handling 400K+ SKUs with millisecond-level read latency.",
+        "Built fault-tolerant document ingestion pipelines using AWS Lambda, SQS, S3, DLQs, and exponential retry strategies.",
+        "Developed and maintained 50+ backend APIs and services using FastAPI, PostgreSQL, MongoDB, and AWS services."
       ],
-      highlights: ["AWS Bedrock", "FastAPI", "OpenSearch", "Docker"]
+      highlights: ["Python", "FastAPI", "AWS", "LangGraph", "OpenSearch", "DynamoDB", "PostgreSQL", "AsyncIO"]
     },
     {
       role: "Application Engineering Intern",
@@ -27,23 +29,38 @@ export default function ExperienceEducation() {
       period: "Jan 2024 - Jun 2024",
       location: "Bengaluru, India",
       achievements: [
-        "Assisted in packaging and containerizing legacy backend APIs using multi-stage Docker profiles.",
-        "Contributed to asynchronous REST endpoint configurations, debugging, and mock telemetry trials.",
-        "Wrote structural automation scripts to validate API responses and assisted in database schema migrations."
+        "Built a full-stack RAG application using AWS Bedrock and Amazon Kendra.",
+        "Contributed to cloud deployment, indexing pipelines, and intelligent document retrieval systems."
       ],
-      highlights: ["Python", "Docker", "REST APIs", "PostgreSQL"]
+      highlights: ["AWS Bedrock", "Amazon Kendra", "Python", "Docker"]
     }
   ];
 
   const education = {
     degree: "Bachelor of Technology (B.Tech)",
     major: "Computer Science & Engineering (CSE)",
-    institution: "NIIT university",
+    institution: "NIIT University",
     period: "2020 - 2024",
     location: "Rajasthan, India",
     details: "Graduated with strong foundations in Data Structures & Algorithms, Distributed Databases, Operating Systems, and Cloud Architectures.",
-    coursework: ["Advanced Algorithms", "System Design", "Cloud Computing", "NoSQL Databases","Artificial Intelligence"]
+    coursework: ["Advanced Algorithms", "System Design", "Cloud Computing", "NoSQL Databases", "Artificial Intelligence"]
   };
+
+  const achievements = [
+    "Built enterprise AI systems serving large-scale internal users.",
+    "Developed and maintained 50+ production backend APIs.",
+    "Improved image retrieval accuracy by 70% in multimodal search systems.",
+    "Designed fault-tolerant event-driven pipelines adopted across multiple projects.",
+    "Solved 400+ problems on LeetCode."
+  ];
+
+  const certifications = [
+    {
+      title: "AWS Certified Cloud Practitioner",
+      validity: "2025 – 2028",
+      issuer: "Amazon Web Services (AWS)"
+    }
+  ];
 
   return (
     <section className="py-16 px-[4%] md:px-12 relative z-20 space-y-12">
@@ -51,16 +68,16 @@ export default function ExperienceEducation() {
       <div>
         <div className="flex items-center gap-2 mb-1.5 text-primary-container font-mono text-xs font-bold tracking-widest uppercase">
           <Layers className="w-4 h-4 text-red-500" />
-          Background & Credentials
+          Background &amp; Credentials
         </div>
         <h2 className="font-bebas text-3xl md:text-5xl text-on-surface tracking-wide uppercase">
           Production Credits (CV)
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Experience - Left Columns (Col Span 7) */}
-        <div className="lg:col-span-7 space-y-6">
+      <div className="space-y-12">
+        {/* Experience - Left Columns */}
+        <div className="space-y-6">
           <div className="flex items-center gap-2 pb-3 border-b border-white/10">
             <Briefcase className="w-5 h-5 text-red-500" />
             <h3 className="font-bebas text-2xl text-on-surface tracking-wide">
@@ -120,8 +137,8 @@ export default function ExperienceEducation() {
           </div>
         </div>
 
-        {/* Education - Right Columns (Col Span 5) */}
-        <div className="lg:col-span-5 space-y-6">
+        {/* Education Box */}
+        <div className="space-y-4">
           <div className="flex items-center gap-2 pb-3 border-b border-white/10">
             <GraduationCap className="w-5 h-5 text-red-500" />
             <h3 className="font-bebas text-2xl text-on-surface tracking-wide">
@@ -155,7 +172,7 @@ export default function ExperienceEducation() {
               <div className="space-y-1.5 text-xs font-mono text-secondary/60 border-y border-white/5 py-3">
                 <div className="flex justify-between">
                   <span>Institution:</span>
-                  <span className="font-semibold text-on-surface text-right max-w-[180px] truncate" title={education.institution}>
+                  <span className="font-semibold text-on-surface text-right max-w-[180px] sm:max-w-none truncate" title={education.institution}>
                     {education.institution}
                   </span>
                 </div>
@@ -191,6 +208,62 @@ export default function ExperienceEducation() {
                 </div>
               </div>
             </div>
+          </motion.div>
+        </div>
+
+        {/* Certifications Row */}
+        <div className="space-y-3">
+          <div className="flex items-center gap-2 pb-2 border-b border-white/10">
+            <Award className="w-5 h-5 text-red-500" />
+            <h3 className="font-bebas text-2xl text-on-surface tracking-wide">
+              Credentials &amp; Certs
+            </h3>
+          </div>
+
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+              className="bg-surface-container-low border border-white/5 p-4 rounded-lg flex items-center justify-between gap-3 shadow-md hover:border-red-500/10 transition-all"
+            >
+              <div>
+                <h4 className="text-xs font-bold text-on-surface">{cert.title}</h4>
+                <p className="text-[10px] text-secondary font-mono mt-0.5">{cert.issuer}</p>
+              </div>
+              <span className="text-[10px] text-red-500 font-mono font-bold bg-red-500/10 px-2 py-1 rounded border border-red-500/20 whitespace-nowrap">
+                {cert.validity}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Achievements Row */}
+        <div className="space-y-3">
+          <div className="flex items-center gap-2 pb-2 border-b border-white/10">
+            <CheckCircle2 className="w-5 h-5 text-red-500" />
+            <h3 className="font-bebas text-2xl text-on-surface tracking-wide">
+              Key Achievements
+            </h3>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="bg-surface-container-low border border-white/5 p-5 rounded-lg shadow-xl"
+          >
+            <ul className="space-y-3">
+              {achievements.map((ach, i) => (
+                <li key={i} className="text-xs text-secondary/85 leading-relaxed flex items-start gap-2">
+                  <span className="text-red-500 font-extrabold shrink-0">✔</span>
+                  <span>{ach}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </div>
