@@ -225,23 +225,13 @@ export default function SkillsView({ categories }: SkillsViewProps) {
                   <h4 className="text-xs font-bold uppercase text-secondary/70 tracking-widest mb-3">
                     Demonstrated Proficiency Specs
                   </h4>
-                  <div className="grid grid-cols-2 gap-3 text-xs text-secondary font-medium">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary-container" />
-                      Async Processing Pipelines
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary-container" />
-                      SQL / NoSQL Query Tuning
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary-container" />
-                      Multi-Tenant Data Security
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary-container" />
-                      Cloud-Native Deployments
-                    </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-secondary font-medium">
+                    {(selectedSkill.specs).map((spec, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-primary-container shrink-0" />
+                        <span className="truncate" title={spec}>{spec}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
