@@ -54,6 +54,7 @@ export interface Project {
   duration: string;
   proficiency: Proficiency[];
   reviews?: Review[];
+  url?: string;
 }
 
 export interface Skill {
@@ -64,6 +65,7 @@ export interface Skill {
   imageUrl: string;
   details: string;
   level: "Expert" | "Advanced" | "Intermediate";
+  specs?: string[];
 }
 
 export interface SkillCategory {
