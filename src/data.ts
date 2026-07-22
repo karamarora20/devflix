@@ -5,11 +5,21 @@
 
 import { Project, SkillCategory, Notification, ActiveFocus } from "./types";
 
+import ragPoster from "./assets/images/rag_poster_1784728334582.jpg";
+import tenantPoster from "./assets/images/tenant_poster_1784728354905.jpg";
+import testgenPoster from "./assets/images/testgen_poster_1784728366139.jpg";
+import warehousePoster from "./assets/images/warehouse_poster_1784728379846.jpg";
+import voicePoster from "./assets/images/voice_poster_1784728391876.jpg";
+import alzheimerPoster from "./assets/images/alzheimer_poster_1784728407087.jpg";
+import dsaPoster from "./assets/images/dsa_poster_1784728421569.jpg";
+import gatepassPoster from "./assets/images/gatepass_poster_1784728436364.jpg";
+import userAvatar from "./assets/images/user_avatar.png";
+
 export const MY_PROFILE = {
   name: "Karam Arora",
   title: "SDE 1 — Backend Engineer & AI Systems Builder",
-  avatarUrl: "/avatar.png",
-  portraitUrl: "/avatar.png",
+  avatarUrl: userAvatar,
+  portraitUrl: userAvatar,
   workspaceBackground: "/bg.png",
   bio: "Backend Engineer with 2 years of production experience building scalable APIs, distributed systems, and cloud-native applications on AWS. My work sits at the intersection of Backend Engineering and Applied AI, where I design systems that combine reliable infrastructure with modern LLM capabilities. I've built multimodal RAG platforms, agentic workflows, hybrid search systems, event-driven architectures, and high-performance backend services used in production environments.",
   genres: ["Python", "FastAPI", "AWS", "NoSQL", "LangGraph", "Docker", "RAG Systems"],
@@ -19,7 +29,7 @@ export const MY_PROFILE = {
 export const ACTIVE_FOCUS_DATA: ActiveFocus[] = [
   {
     id: "active_1",
-    title: "Software Developer",
+    title: "Software Developer (SDE 1)",
     role: "Backend & AI Systems Builder",
     company: "Genpact",
     progress: 100,
@@ -45,215 +55,274 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "multimodal_rag",
     title: "Multimodal RAG Platform",
-    matchScore: 99,
-    year: "2024",
+    year: "2025",
     level: "Expert",
     edition: "Production Enterprise",
-    genres: ["AWS", "OpenSearch", "S3", "Lambda", "SQS", "FastAPI", "AI Engineering"],
+    genres: ["AWS", "OpenSearch", "S3", "Lambda", "SQS", "FastAPI", "Gen AI"],
     description: "Enterprise-grade retrieval system supporting text and image understanding. Replaced legacy Textract OCR extraction with an LLM-powered contextual description generator to improve search accuracy by 70%. Implemented a hybrid search pipeline combining BM25 keyword matching, vector search, and a reranking stage to fix Titan embedding limits.",
-    posterUrl: "/multimodal_rag.jpg",
-    billboardUrl: "/bg.png",
+    posterUrl: ragPoster,
+    billboardUrl: ragPoster,
     techStack: "AWS, OpenSearch, S3, AWS Lambda, SQS, FastAPI, Python",
     role: "Lead Software Developer",
-    duration: "Jul 2024 - Present",
-    proficiency: [
-      { label: "AI Integration", percentage: 95 },
-      { label: "Backend APIs", percentage: 90 },
-      { label: "Cloud Infra", percentage: 85 }
-    ],
+    duration: "Mar 2025 - Aug 2025 ",
     features: [
       {
         id: 1,
         title: "Contextual Image Description Pipeline",
         version: "v1.0",
         description: "Replaced OCR-based extraction with LLM-generated contextual descriptions, achieving a 70% boost in overall image search correctness.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: ragPoster
       },
       {
         id: 2,
         title: "Hybrid Search & Reranking",
         version: "v1.2",
         description: "Configured BM25 keyword indexing combined with Dense Vector search and Cohere rerankers to optimize search query correctness.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: ragPoster
       },
       {
         id: 3,
         title: "Fault-Tolerant Ingestion Pipeline",
         version: "v1.0",
         description: "Built automated document ingestion using Lambda, SQS, dead-letter queues (DLQs), and exponential retry strategies.",
-        thumbnailUrl: "/skill_bg.png"
-      }
-    ],
-    reviews: [
-      {
-        id: "rev_rag1",
-        author: "Sarah Jenkins",
-        role: "Director of Product, CloudScale AI",
-        text: "The multimodal RAG system transformed our document retrieval process. The integration of AWS Bedrock with BM25 hybrid search was a masterstroke.",
-        rating: 5,
-        date: "October 2024"
-      },
-      {
-        id: "rev_rag2",
-        author: "Devon Miller",
-        role: "Principal Architect",
-        text: "Very impressive sub-10s latency even under heavy stress testing. The LLM-generated contextual description approach is incredibly elegant.",
-        rating: 5,
-        date: "November 2024"
+        thumbnailUrl: ragPoster
       }
     ]
   },
   {
     id: "tenantguard",
     title: "Multi-Tenant SaaS Backend",
-    matchScore: 98,
-    year: "2024",
+    year: "2026",
     level: "Expert",
     edition: "Open Source Release",
-    genres: ["FastAPI", "PostgreSQL", "Redis", "SQLAlchemy", "Docker", "Security", "Backend"],
+    genres: ["FastAPI", "PostgreSQL", "Redis", "SQLAlchemy", "Docker", "Security", "Backend","Python"],
     description: "A production-style backend designed with strict tenant isolation at the database layer using PostgreSQL Row-Level Security (RLS) to prevent cross-tenant data leaks. Implemented JWT Authentication, Role-Based Access Control (RBAC), Redis sliding-window token rate limiting, and usage-based subscription quotas.",
-    posterUrl: "/tenantguard.jpg",
-    billboardUrl: "/bg.png",
+    posterUrl: tenantPoster,
+    billboardUrl: tenantPoster,
     techStack: "FastAPI, PostgreSQL, Redis, Async SQLAlchemy, Docker, JWT",
     role: "Backend Architect",
-    duration: "3 Months",
+    duration: " Jun 2026 - July 2026",
     url: "https://github.com/karamarora20/TenantGuard",
-    proficiency: [
-      { label: "Database Design", percentage: 95 },
-      { label: "Asynchronous APIs", percentage: 90 },
-      { label: "Security Isolation", percentage: 92 }
-    ],
     features: [
       {
         id: 1,
         title: "PostgreSQL Row-Level Security (RLS)",
         version: "v1.0",
         description: "Enforced multi-tenant isolation natively inside PostgreSQL schemas, ensuring cross-tenant queries are structurally blocked.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: tenantPoster
       },
       {
         id: 2,
         title: "Sliding-Window Rate Limiting",
         version: "v1.1",
         description: "Designed a Redis-backed token bucket sliding-window algorithm for smart, subscription-aware API rate enforcement.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: tenantPoster
       },
       {
         id: 3,
         title: "JWT & Role-Based Access Controls (RBAC)",
         version: "v1.0",
         description: "Wrote fully type-safe dependency decorators in FastAPI to authenticate tokens and authorize user permissions across routes.",
-        thumbnailUrl: "/skill_bg.png"
-      }
-    ],
-    reviews: [
-      {
-        id: "rev_tg1",
-        author: "Alex Rivera",
-        role: "CTO, LeaseTech",
-        text: "Enforcing multi-tenancy boundaries at the database layer via PostgreSQL RLS is standard best-practice, and this implementation is flawless.",
-        rating: 5,
-        date: "September 2024"
+        thumbnailUrl: tenantPoster
       }
     ]
   },
   {
     id: "testgen",
     title: "Automated Test Generation & Execution",
-    matchScore: 96,
-    year: "2024",
+    year: "2026",
     level: "Advanced",
     edition: "AI Automation Tool",
     genres: ["LangGraph", "ChromaDB", "Python", "FastAPI", "AsyncIO", "Gen AI"],
     description: "An AI-powered testing system that converts user stories and acceptance criteria into executable integration tests. Utilizes a multi-agent orchestration graph inside LangGraph featuring distinct Scenario Generation, Validation, and Test Generation agents. Integrates RAG-powered API discovery from OpenAPI specifications.",
-    posterUrl: "/testgen.jpg",
-    billboardUrl: "/bg.png",
+    posterUrl: testgenPoster,
+    billboardUrl: testgenPoster,
     techStack: "Python, FastAPI, LangGraph, ChromaDB, AsyncIO,Gen AI",
     role: "AI Developer",
-    duration: "4 Months",
+    duration: "Feb 2026 - May 2026",
     url: "https://github.com/karamarora20/Test_generation_pipeline",
-    proficiency: [
-      { label: "Agentic AI", percentage: 90 },
-      { label: "Vector DB Search", percentage: 88 },
-      { label: "Async Pipeline", percentage: 85 }
-    ],
     features: [
       {
         id: 1,
         title: "Multi-Agent LangGraph Architecture",
         version: "v1.0",
         description: "Orchestrated Scenario Generation, Static Code Validation, and Pytest Code Generation agents inside an automated LangGraph graph.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: testgenPoster
       },
       {
         id: 2,
         title: "OpenAPI Spec API Discovery",
         version: "v1.1",
         description: "Used semantic search over vector-embedded OpenAPI specifications to discover valid request parameters and target endpoints.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: testgenPoster
       },
       {
         id: 3,
         title: "Persistence & Failure Recovery",
         version: "v1.0",
         description: "Implemented asynchronous checkpoint savers inside the graph to resume test execution state seamlessly on agent failures.",
-        thumbnailUrl: "/skill_bg.png"
-      }
-    ],
-    reviews: [
-      {
-        id: "rev_tg_ai1",
-        author: "Liam Zhao",
-        role: "Head of QA Automation",
-        text: "Converting user stories directly to integration tests using LangGraph agents reduced our test cycles by 60%. Highly robust output.",
-        rating: 5,
-        date: "July 2024"
+        thumbnailUrl: testgenPoster
       }
     ]
   },
   {
     id: "warehouse",
     title: "NoSQL Stock Warehouse System",
-    matchScore: 95,
-    year: "2024",
-    level: "Expert",
+    year: "2025",
+    level: "Intermediate",
     edition: "Enterprise DB Series",
     genres: ["DynamoDB", "AWS", "SQS", "NoSQL", "Database"],
     description: "Designed a stock management database schema handling 400K+ SKUs using DynamoDB single-table design with GSIs, achieving single-digit millisecond query latencies. Built a fault-tolerant async document ingestion pipeline with Lambda and SQS.",
-    posterUrl: "/warehouse.jpg",
-    billboardUrl: "/bg.png",
+    posterUrl: warehousePoster,
+    billboardUrl: warehousePoster,
     techStack: "AWS DynamoDB, AWS Lambda, SQS, S3, Python, Serverless",
     role: "Backend & Systems Developer",
-    duration: "6 Months",
-    proficiency: [
-      { label: "NoSQL Design", percentage: 95 },
-      { label: "Serverless Ingest", percentage: 90 },
-      { label: "Fault Tolerance", percentage: 88 }
-    ],
+    duration: "Aug 2025 - Oct 2025",
     features: [
       {
         id: 1,
         title: "DynamoDB Single-Table Modeling",
         version: "v1.0",
         description: "Molded composite partition-sort keys and GSIs to achieve sub-10ms queries for item attributes across 400K+ SKUs.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: warehousePoster
       },
       {
         id: 2,
         title: "Fault-Tolerant Async Ingestion",
         version: "v1.0",
         description: "Designed ingestion with SQS message buffering, exponential retry configurations, dead-letter queue (DLQ) dumping, and alert routes.",
-        thumbnailUrl: "/skill_bg.png"
+        thumbnailUrl: warehousePoster
       }
-    ],
-    reviews: [
+    ]
+  },
+  {
+    id: "voice_rag",
+    title: "Voice-Activated RAG Engine",
+    year: "2024",
+    level: "Expert",
+    edition: "Applied AI Series",
+    genres: ["Python", "RAG Systems", "Gen AI", "Speech API", "FastAPI"],
+    description: "An interactive voice-based Retrieval-Augmented Generation engine. Seamlessly captures spoken audio queries, transcribes them using speech-to-text models, performs fast web search over google, and synthesizes text-to-speech conversational answers.",
+    posterUrl: voicePoster,
+    billboardUrl: voicePoster,
+    techStack: "Python, OpenAI, Web Scraping, Speech to text",
+    role: "Solo Creator",
+    duration: "April 2024",
+    url: "https://github.com/karamarora20/Voice_RAG",
+    features: [
       {
-        id: "rev_wh1",
-        author: "Sophia Patel",
-        role: "VP of Logistics, CommerceFlow",
-        text: "Managing 400K SKUs on DynamoDB is notoriously hard for relational queries, but the single-table GSI modeling here was executed masterfully.",
-        rating: 5,
-        date: "May 2024"
+        id: 1,
+        title: "Asynchronous Voice Processing Loop",
+        version: "v1.0",
+        description: "Low-latency voice capture stream with voice activity detection (VAD) and fast transcription pipeline.",
+        thumbnailUrl: voicePoster
+      },
+      {
+        id: 2,
+        title: "Contextual RAG Retrieval",
+        version: "v1.0",
+        description: "Fast  semantic lookup on Google combined with LLM generation to formulate direct answers.",
+        thumbnailUrl: voicePoster
+      },
+      {
+        id: 3,
+        title: "Natural Voice Synthesis",
+        version: "v1.0",
+        description: "Synthesized auditory responses in real time, achieving fluid conversational latency.",
+        thumbnailUrl: voicePoster
+      }
+    ]
+  },
+  {
+    id: "alzheimer_detection",
+    title: "Alzheimer's MRI Detection Classifier",
+    year: "2023",
+    level: "Advanced",
+    edition: "Computer Vision Special",
+    genres: ["Jupyter Notebook", "Python", "Computer Vision", "TensorFlow", "Deep Learning"],
+    description: "Deep learning-based classification model utilizing MRI scan datasets to detect Alzheimer's disease at early stages. Implements Convolutional Neural Networks (CNNs), data augmentation, transfer learning, and dense layer optimization to achieve high-precision classification metrics.",
+    posterUrl: alzheimerPoster,
+    billboardUrl: alzheimerPoster,
+    techStack: "TensorFlow, Keras, OpenCV, NumPy, Jupyter Notebook",
+    role: "Lead Deep Learning Engineer",
+    duration: "Nov 2023 -  Feb 2024",
+    url: "https://github.com/karamarora20/Alzheimer_detection",
+    features: [
+      {
+        id: 1,
+        title: "MRI ConvNet Classifier",
+        version: "v1.0",
+        description: "Trained a multi-class CNN architecture to classify mild, moderate, and non-demented brain scans.",
+        thumbnailUrl: alzheimerPoster
+      },
+      {
+        id: 2,
+        title: "Data Augmentation Pipelines",
+        version: "v1.0",
+        description: "Engineered robust preprocessing routines including contrast adjustments and rotation to overcome medical dataset limitations.",
+        thumbnailUrl: alzheimerPoster
+      }
+    ]
+  },
+  {
+    id: "neetcode_submissions",
+    title: "NeetCode DSA Solutions",
+    year: "2026",
+    level: "Intermediate",
+    edition: "Algorithm Ledger",
+    genres: ["Python", "Algorithms", "Data Structures", "Problem Solving"],
+    description: "A highly organized personal repository tracking optimized solutions to classical computer science data structures and algorithms (DSA) challenges from the NeetCode curriculum. Spans array manipulation, multi-pointer traversal, sliding window, tree traversals, graphs, and dynamic programming.",
+    posterUrl: dsaPoster,
+    billboardUrl: dsaPoster,
+    techStack: "Python, Automated Git Sync, Pytest, DSA Specifications",
+    role: "Solo Contributor",
+    duration: "Ongoing",
+    url: "https://github.com/karamarora20/neetcode-submissions",
+    features: [
+      {
+        id: 1,
+        title: "Optimized Graph & Tree Traversal Algorithms",
+        version: "v1.0",
+        description: "Wrote clean iterative/recursive DFS & BFS patterns tracking visited states to optimize runtimes.",
+        thumbnailUrl: dsaPoster
+      },
+      {
+        id: 2,
+        title: "Sliding Window & Two Pointer Traversals",
+        version: "v1.0",
+        description: "Minimized time complexities from quadratic to linear O(N) using sliding-window array patterns.",
+        thumbnailUrl: dsaPoster
+      }
+    ]
+  },
+  {
+    id: "nu_gatepass",
+    title: "NU Gatepass Management System",
+    year: "2023",
+    level: "Intermediate",
+    edition: "System Utility Release",
+    genres: ["JavaScript", "HTML/CSS", "Web Development", "Management System","Backend"],
+    description: "A web-based portal to streamline and manage the gatepass application and approval lifecycle for NU students and authorities. Features simple dashboard controls, input forms for gatepass requests, role-based authorization mocks, and responsive request tables.",
+    posterUrl: gatepassPoster,
+    billboardUrl: gatepassPoster,
+    techStack: "HTML, CSS, JavaScript, LocalStorage, Custom Mock API",
+    role: "FullStack Developer",
+    duration: "Jun 2023 - Aug 2023",
+    url: "https://github.com/karamarora20/NU_Gatepass_project",
+    features: [
+      {
+        id: 1,
+        title: "Gatepass Application forms",
+        version: "v1.0",
+        description: "Interactive forms tracking check-out details, destination, and verification codes.",
+        thumbnailUrl: gatepassPoster
+      },
+      {
+        id: 2,
+        title: "Authority Dashboard Mock",
+        version: "v1.0",
+        description: "Created real-time tables with Accept/Reject actions that update gatepass status instantly.",
+        thumbnailUrl: gatepassPoster
       }
     ]
   }
@@ -267,7 +336,6 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "python",
         title: "Python",
-        matchScore: 99,
         tag: "Core",
         imageUrl: "/skill_bg.png",
         details: "Building robust, typed, and asynchronous systems in Python. Expert in object-oriented paradigms, concurrent processing, and package architectures.",
@@ -282,7 +350,6 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "java",
         title: "Java",
-        matchScore: 90,
         tag: "Core",
         imageUrl: "/skill_bg.png",
         details: "Strong OOP foundations, building structured multi-threaded applications, memory optimization, and garbage collection configurations.",
@@ -297,7 +364,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "sql",
         title: "SQL & Relational",
-        matchScore: 95,
+        
         tag: "Core",
         imageUrl: "/skill_bg.png",
         details: "Wrote complex joins, transaction schemas, procedural scopes, query optimization indexing, and advanced partitioning paradigms.",
@@ -312,7 +379,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "javascript",
         title: "JavaScript / TypeScript",
-        matchScore: 88,
+     
         tag: "Scripting",
         imageUrl: "/skill_bg.png",
         details: "Asynchronous execution mechanisms, type interfaces, React component flows, Node runtime executions, and scripting automations.",
@@ -333,7 +400,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "fastapi",
         title: "FastAPI",
-        matchScore: 98,
+      
         tag: "Web",
         imageUrl: "/skill_bg.png",
         details: "Designing high-throughput asynchronous REST APIs, configuring custom Pydantic models, custom route middlewares, and Dependency Injection scopes.",
@@ -348,7 +415,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "rest_apis",
         title: "REST APIs & Design",
-        matchScore: 96,
+      
         tag: "Architecture",
         imageUrl: "/skill_bg.png",
         details: "Structuring endpoint hierarchies, status routing, payload validations, OpenAPI contract enforcement, and robust error management.",
@@ -363,7 +430,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "async_programming",
         title: "Async Programming",
-        matchScore: 95,
+    
         tag: "Performance",
         imageUrl: "/skill_bg.png",
         details: "Optimizing database, network, and file I/O operations inside event-driven frameworks using Python AsyncIO tasks and coroutines.",
@@ -384,7 +451,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "postgresql",
         title: "PostgreSQL & RLS",
-        matchScore: 97,
+    
         tag: "Relational",
         imageUrl: "/skill_bg.png",
         details: "Designed complex database isolation schemas using Row-Level Security (RLS) policies. Highly fluent with SQLAlchemy, indexes, and performance metrics.",
@@ -399,7 +466,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "dynamodb",
         title: "DynamoDB NoSQL",
-        matchScore: 96,
+    
         tag: "NoSQL",
         imageUrl: "/skill_bg.png",
         details: "Crafting sub-10ms query single-table schemas using partition/sort key composition, GSI indexing patterns, and AWS SDK operations.",
@@ -414,7 +481,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "redis",
         title: "Redis Cache",
-        matchScore: 95,
+   
         tag: "In-Memory",
         imageUrl: "/skill_bg.png",
         details: "Configuring cache clusters, sliding-window rate limiters, token bucket structures, pub-sub microchannels, and transient session caches.",
@@ -429,7 +496,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "opensearch",
         title: "OpenSearch",
-        matchScore: 94,
+
         tag: "Search Engine",
         imageUrl: "/skill_bg.png",
         details: "Building hybrid search indexes, BM25 text query analyzers, dense vector mappings, and semantic search interfaces.",
@@ -450,7 +517,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "aws",
         title: "Amazon Web Services (AWS)",
-        matchScore: 96,
+ 
         tag: "Cloud",
         imageUrl: "/skill_bg.png",
         details: "Architecting cloud-native pipelines using AWS Bedrock, Lambda, DynamoDB, OpenSearch, SQS, S3, and standard security groups.",
@@ -465,7 +532,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "docker",
         title: "Docker & Containers",
-        matchScore: 94,
+
         tag: "Containers",
         imageUrl: "/skill_bg.png",
         details: "Containerizing microservices, writing production-grade multi-stage Dockerfiles, optimizing image sizes, and Docker Compose configurations.",
@@ -480,7 +547,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "github_actions",
         title: "GitHub Actions & CI/CD",
-        matchScore: 90,
+  
         tag: "Automation",
         imageUrl: "/skill_bg.png",
         details: "Writing YAML-driven automated test workflows, container compilation pipelines, security checks, and cloud deployment routines.",
@@ -501,7 +568,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "rag_pipelines",
         title: "RAG & Retrieval Systems",
-        matchScore: 98,
+    
         tag: "Applied AI",
         imageUrl: "/skill_bg.png",
         details: "Pioneering multimodal RAG retrieval (text + images), dense vector search, BM25 indexing, reranking models, and contextual chunk transformations.",
@@ -516,7 +583,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "langgraph",
         title: "LangGraph & Multi-Agent",
-        matchScore: 96,
+      
         tag: "Applied AI",
         imageUrl: "/skill_bg.png",
         details: "Designing loop-based stateful multi-agent systems, integrating code generation agents, validator systems, and OpenAPI tool integrations.",
@@ -531,7 +598,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "llm_applications",
         title: "LLM Orchestration",
-        matchScore: 97,
+     
         tag: "Applied AI",
         imageUrl: "/skill_bg.png",
         details: "Integrating AWS Bedrock foundation models, crafting advanced semantic prompt engineering, structuring output schemas, and managing model rates.",
@@ -552,7 +619,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "distributed_systems",
         title: "Distributed Systems",
-        matchScore: 92,
+
         tag: "Architecture",
         imageUrl: "/skill_bg.png",
         details: "Designing async event-driven systems, configuring reliable message queues, distributed consensus, and microservice communications.",
@@ -567,7 +634,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "fault_tolerance",
         title: "Fault-Tolerant Architectures",
-        matchScore: 94,
+      
         tag: "Resilience",
         imageUrl: "/skill_bg.png",
         details: "Configuring dead-letter queue (DLQ) mechanisms, circuit breakers, exponential backoffs, fallback engines, and retry safety thresholds.",
@@ -582,7 +649,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         id: "scalable_backend",
         title: "Scalable Backend Design",
-        matchScore: 95,
+      
         tag: "Scaling",
         imageUrl: "/skill_bg.png",
         details: "Optimizing API performance, reducing latency, load testing bottleneck discoverability, caching strategies, and load balancing configurations.",
@@ -595,32 +662,5 @@ export const SKILLS_DATA: SkillCategory[] = [
         ]
       }
     ]
-  }
-];
-
-export const MOCK_NOTIFICATIONS: Notification[] = [
-  {
-    id: "notif_1",
-    title: "Enterprise Multimodal RAG platform deployed to AWS Bedrock (99% Match)",
-    timestamp: "10 mins ago",
-    read: false
-  },
-  {
-    id: "notif_2",
-    title: "Automated test generator converted 20 integration tests via LangGraph",
-    timestamp: "2 hours ago",
-    read: false
-  },
-  {
-    id: "notif_3",
-    title: "PostgreSQL Row-Level Security isolation verified across multi-tenant keys",
-    timestamp: "1 day ago",
-    read: true
-  },
-  {
-    id: "notif_4",
-    title: "DynamoDB Single-Table partition keys loaded for 400K+ SKUs",
-    timestamp: "3 days ago",
-    read: true
   }
 ];
