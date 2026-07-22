@@ -57,7 +57,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
         {/* Left Column: Director Profile & Credits */}
         <div className="md:col-span-5 flex flex-col gap-8 md:pr-4">
           <div className="space-y-4">
-            <h1 className="font-bebas text-5xl text-on-surface md:hidden mb-2 tracking-wide">
+            <h1 className="font-bebas text-3xl sm:text-5xl text-on-surface md:hidden mb-2 tracking-wide">
               CONTACT
             </h1>
 
@@ -132,7 +132,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
             <div className="absolute -inset-10 bg-primary-container/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-              <h1 className="font-bebas text-5xl lg:text-[72px] text-on-surface mb-2 tracking-wide">
+              <h1 className="font-bebas text-3xl sm:text-5xl md:text-[96px] text-on-surface mb-2 tracking-wide">
                 DIRECT CHANNELS
               </h1>
 
@@ -373,7 +373,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
               <div className="p-4 bg-surface-container-high border-t border-white/5 flex justify-end">
                 <button
                   onClick={() => setShowResume(false)}
-                  className="bg-primary-container text-white px-5 py-2 rounded font-semibold text-xs hover:opacity-85"
+                  className="bg-primary-container cursor-pointer text-white px-5 py-2 rounded font-semibold text-xs hover:opacity-85"
                 >
                   Close Document
                 </button>
