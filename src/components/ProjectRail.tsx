@@ -6,6 +6,7 @@
 import { Project } from "../types";
 import { ChevronRight, Play } from "lucide-react";
 import { useRef, useEffect } from "react";
+import ProjectPoster from "./ProjectPoster";
 
 interface ProjectRailProps {
   title?: string;
@@ -15,6 +16,17 @@ interface ProjectRailProps {
 
 export default function ProjectRail({ title = "My List", projects, onProjectClick }: ProjectRailProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    const container = containerRef.current;
+    if (!container) return;
+    const scrollAmount = window.innerWidth >= 768 ? 336 : 272; // width + gap
+    if (direction === "left") {
+      container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const container = containerRef.current;
@@ -60,10 +72,14 @@ export default function ProjectRail({ title = "My List", projects, onProjectClic
         <h2 className="font-bebas text-3xl md:text-4xl text-on-surface tracking-wide">
           {title}
         </h2>
-        <span className="text-xs text-secondary/70 flex items-center gap-1 cursor-pointer hover:text-on-surface transition-colors">
-          Swipe/Scroll Left
+        <button
+          onClick={() => scroll("right")}
+          className="text-xs text-secondary/70 flex items-center gap-1 hover:text-on-surface transition-colors cursor-pointer bg-transparent border-none outline-none"
+          aria-label="Scroll right"
+        >
+          Scroll Right
           <ChevronRight className="w-4 h-4" />
-        </span>
+        </button>
       </div>
 
       <div
@@ -74,44 +90,30 @@ export default function ProjectRail({ title = "My List", projects, onProjectClic
           <div
             key={project.id}
             onClick={() => onProjectClick(project.id)}
-            className="flex-none w-64 md:w-80 aspect-video relative rounded-lg overflow-hidden hover-scale group cursor-pointer snap-start bg-surface-container-high border border-white/5 hover:border-primary-container/30 transition-all duration-300"
+            className="flex-none w-64 md:w-80 snap-start flex flex-col gap-2 group cursor-pointer"
           >
-            {/* Poster Image */}
-            <img
-              className="w-full h-full object-cover group-hover:scale-105 group-hover:blur-[3px] transition-all duration-500"
-              src={project.posterUrl}
-              alt={project.title}
-              referrerPolicy="no-referrer"
-            />
+            {/* Thumbnail Card with Hover scale */}
+            <div className="w-full aspect-video relative rounded-lg overflow-hidden bg-surface-container-high border border-white/5 group-hover:border-primary-container/30 transition-all duration-300 transform group-hover:scale-105 shadow-md">
+              <ProjectPoster project={project} aspectRatio="video" hoverScale={true} />
 
-            {/* Hover overlay details - Cinematic gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-green-500 font-bold text-sm">
-                  {project.matchScore}% Match
-                </span>
-                {/* <div className="flex gap-2">
-                  <button className="p-1 rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white" title="Like">
-                    <Heart className="w-3.5 h-3.5" />
-                  </button>
-                  <button className="p-1 rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white" title="Share">
-                    <Share2 className="w-3.5 h-3.5" />
-                  </button>
-                </div> */}
+              {/* Hover overlay details - Cinematic gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 z-10 pointer-events-none">
+                <p className="text-[10px] text-secondary font-bold tracking-wider uppercase mb-2">
+                  {project.genres.join(" • ")}
+                </p>
+
+                <div className="flex items-center gap-1.5 text-xs text-white/95 mt-1 font-medium bg-primary-container/90 py-1.5 px-3 rounded text-center justify-center">
+                  <Play className="w-3 h-3 fill-white text-white" />
+                  View Details
+                </div>
               </div>
+            </div>
 
-              <h3 className="font-bebas text-2xl text-white mb-1 tracking-wide leading-none">
+            {/* Title and details displayed below the thumbnail */}
+            <div className="px-1 text-left mt-1">
+              <h4 className="font-sans text-sm font-semibold text-on-surface group-hover:text-primary-container transition-colors truncate">
                 {project.title}
-              </h3>
-
-              <p className="text-[10px] text-secondary font-bold tracking-wider uppercase mb-2">
-                {project.genres.join(" • ")}
-              </p>
-
-              <div className="flex items-center gap-1.5 text-xs text-white/95 mt-1 font-medium bg-primary-container/90 py-1.5 px-3 rounded text-center justify-center">
-                <Play className="w-3 h-3 fill-white text-white" />
-                View Details
-              </div>
+              </h4>
             </div>
           </div>
         ))}
