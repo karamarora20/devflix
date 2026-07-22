@@ -11,7 +11,7 @@ export default function Footer({setActiveTab}:{
         <footer className="w-full py-12 mt-auto border-t border-white/5 bg-surface-container-lowest text-secondary text-sm">
         <div className="max-w-7xl mx-auto px-[4%] md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1 mb-4 md:mb-0">
-            <span className="font-bebas text-3xl text-primary-container tracking-tighter">PORTFOLIO</span>
+            <span className="font-bebas text-3xl text-primary-container tracking-tighter">DEVFLIX</span>
             <p className="text-xs text-secondary/50 mt-1">Immersive Developer Portfolio of Karam Arora.</p>
           </div>
 
@@ -84,14 +84,6 @@ export default function Footer({setActiveTab}:{
               className="hover:underline hover:text-on-surface text-secondary/80"
             >
               +91 83680 55676
-            </a>
-            <a 
-              href="https://drive.google.com/file/d/1lfaIxNrlx4yEGvB8Bmnc4nuzgQ91gY8Y/view?usp=drive_link" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:underline hover:text-on-surface text-secondary/80"
-            >
-              Resume PDF Link
             </a>
           </div>
 
