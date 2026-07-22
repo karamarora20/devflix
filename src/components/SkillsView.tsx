@@ -159,7 +159,7 @@ export default function SkillsView({ categories }: SkillsViewProps) {
                 
                 <button 
                   onClick={() => setSelectedSkill(null)} 
-                  className="absolute top-4 right-4 bg-black/60 text-white rounded-full p-1.5 hover:bg-black/95 transition-colors z-20"
+                  className="absolute top-4 right-4 bg-black/60 cursor-pointer text-white rounded-full p-1.5 hover:bg-black/95 transition-colors z-20"
                 >
                   ✕
                 </button>
