@@ -5,7 +5,8 @@
 
 import { useState } from "react";
 import { Project } from "../types";
-import { Play, Code, Sparkles, Terminal, Shield, ArrowLeft, Lock } from "lucide-react";
+import { Play, Code, ArrowLeft, Lock } from "lucide-react";
+import ProjectPoster from "./ProjectPoster";
 
 interface ProjectDetailViewProps {
   project: Project;
@@ -32,7 +33,7 @@ export default function ProjectDetailView({
       <button 
         onClick={onBackClick}
         className="fixed top-28 left-6 md:left-16 z-40 bg-black/60 hover:bg-black/95 text-white p-3 rounded-full border border-white/10 flex items-center justify-center transition-colors cursor-pointer"
-        title="Back to Home"
+        title="Back to Projects"
       >
         <ArrowLeft className="w-5 h-5" />
       </button>
@@ -73,9 +74,6 @@ export default function ProjectDetailView({
 
           {/* Metadata Row */}
           <div className="flex flex-wrap items-center gap-4 mb-6 text-xs md:text-sm">
-            <span className="text-green-500 font-bold">
-              {project.matchScore}% Match
-            </span>
             <span className="text-secondary font-medium">{project.year}</span>
             <span className="border border-outline/50 text-secondary px-2 py-0.5 rounded text-[10px] md:text-xs uppercase tracking-wider font-semibold">
               {project.level}
@@ -92,7 +90,7 @@ export default function ProjectDetailView({
           <div className="flex flex-wrap gap-4">
             <button 
               onClick={() => setDemoActive(true)}
-              className="bg-white text-black px-8 py-3 rounded-md font-bold text-sm md:text-base flex items-center justify-center gap-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.03]"
+              className="bg-white hidden text-black px-8 py-3 rounded-md font-bold text-sm md:text-base flex items-center justify-center gap-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.03]"
             >
               <Play className="w-4 h-4 fill-black text-black" />
               Live Demo
@@ -187,16 +185,7 @@ export default function ProjectDetailView({
           >
             Episodes (Key Features)
           </button>
-          <button 
-            onClick={() => setActiveTab("trailers")}
-            className={`font-bebas text-xl md:text-2xl pb-4 transition-colors ${
-              activeTab === "trailers" 
-                ? "text-on-surface border-b-4 border-primary-container" 
-                : "text-secondary hover:text-on-surface"
-            }`}
-          >
-            System Showcase
-          </button>
+
           <button 
             onClick={() => setActiveTab("moreLikeThis")}
             className={`font-bebas text-xl md:text-2xl pb-4 transition-colors ${
@@ -225,19 +214,6 @@ export default function ProjectDetailView({
                     <div className="font-bebas text-4xl md:text-5xl text-surface-variant group-hover:text-on-surface transition-colors w-12 shrink-0">
                       {idx + 1}
                     </div>
-                    
-                    {/* Feature Thumbnail with Fallback Icon overlay */}
-                    <div className="w-full md:w-48 h-28 bg-surface-container-high shrink-0 rounded overflow-hidden relative border border-white/5 shadow">
-                      <img 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                        src={feature.thumbnailUrl} 
-                        alt={feature.title}
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors flex items-center justify-center">
-                        <Play className="w-6 h-6 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                    </div>
 
                     <div className="flex flex-col flex-grow">
                       <div className="flex justify-between items-center mb-2 gap-4">
@@ -257,41 +233,6 @@ export default function ProjectDetailView({
               </div>
             )}
 
-            {activeTab === "trailers" && (
-              <div className="space-y-6">
-                <h2 className="font-bebas text-2xl md:text-3xl text-on-surface mb-4">
-                  Architecture & Development Log
-                </h2>
-                
-                <div className="p-6 rounded-lg bg-surface-container-high border border-white/5 space-y-4">
-                  <div className="flex gap-3 items-center text-primary-container font-bold text-sm">
-                    <Sparkles className="w-5 h-5 animate-spin" />
-                    PREMIERE ANNOUNCEMENT: CODE HIGHLIGHTS
-                  </div>
-                  <p className="text-sm text-secondary leading-relaxed">
-                    This build represents the peak of my development cycles during {project.year}. To address heavy traffic, the system splits workloads across server-side caching and dynamic client hooks. No redundant queries; only optimized JSON streams.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-surface-container-low p-5 rounded border border-white/5">
-                    <Terminal className="w-5 h-5 text-green-400 mb-3" />
-                    <h3 className="font-bold text-sm text-on-surface mb-2">Systems Level Hooks</h3>
-                    <p className="text-xs text-secondary leading-relaxed">
-                      Custom polling hooks prevent component re-renders while coordinating multi-layer data matrices seamlessly across browsers.
-                    </p>
-                  </div>
-                  <div className="bg-surface-container-low p-5 rounded border border-white/5">
-                    <Shield className="w-5 h-5 text-primary-container mb-3" />
-                    <h3 className="font-bold text-sm text-on-surface mb-2">Zero-Leak Guardrails</h3>
-                    <p className="text-xs text-secondary leading-relaxed">
-                      Token expiration validation layers prevent session theft or cache leakage under heavy client concurrent cycles.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {activeTab === "moreLikeThis" && (
               <div>
                 <h2 className="font-bebas text-2xl md:text-3xl text-on-surface mb-6">
@@ -308,16 +249,7 @@ export default function ProjectDetailView({
                       className="bg-surface-container-high rounded overflow-hidden cursor-pointer group border border-white/5 hover:border-primary-container/30 transition-all duration-300 shadow hover:scale-[1.03]"
                     >
                       <div className="aspect-[2/3] overflow-hidden relative">
-                        <img 
-                          src={p.posterUrl} 
-                          alt={p.title} 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors" />
-                        <span className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-green-500 font-bold text-xs px-2 py-0.5 rounded">
-                          {p.matchScore}%
-                        </span>
+                        <ProjectPoster project={p} aspectRatio="poster" hoverScale={true} />
                       </div>
                       <div className="p-3">
                         <h3 className="font-bebas text-lg text-on-surface tracking-wide group-hover:text-primary-container transition-colors truncate">
@@ -360,29 +292,6 @@ export default function ProjectDetailView({
                   Duration
                 </span>
                 <p className="text-on-surface font-medium">{project.duration}</p>
-              </div>
-
-              <div className="pt-4 border-t border-white/5">
-                <h3 className="font-bebas text-xl text-on-surface mb-4">
-                  Proficiency Utilized
-                </h3>
-                
-                <div className="space-y-4">
-                  {project.proficiency.map((p) => (
-                    <div key={p.label} className="space-y-1.5">
-                      <div className="flex justify-between items-center text-xs">
-                        <span className="font-semibold text-on-surface">{p.label}</span>
-                        <span className="font-bold text-primary-container">{p.percentage}%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden border border-white/5">
-                        <div 
-                          className="h-full bg-primary-container rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${p.percentage}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
