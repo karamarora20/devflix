@@ -5,7 +5,11 @@
 
 import { useState } from "react";
 import { SkillCategory, Skill } from "../types";
-import { Play, Info, Award, Terminal, CheckCircle2 } from "lucide-react";
+import { 
+  Award, Terminal, CheckCircle2, 
+  Brain, Database, Cpu, Cloud, Server, 
+  ChevronRight 
+} from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface SkillsViewProps {
@@ -14,161 +18,111 @@ interface SkillsViewProps {
 
 export default function SkillsView({ categories }: SkillsViewProps) {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
-  const [viewProgressActive, setViewProgressActive] = useState(false);
+
+  // Helper to map category IDs to representative icons
+  const getCategoryIcon = (categoryId: string | undefined, sizeClass = "w-6 h-6") => {
+    switch (categoryId) {
+      case "languages":
+        return <Terminal className={sizeClass} />;
+      case "backend_apis":
+        return <Server className={sizeClass} />;
+      case "databases":
+        return <Database className={sizeClass} />;
+      case "cloud_infra":
+        return <Cloud className={sizeClass} />;
+      case "ai_engineering":
+        return <Brain className={sizeClass} />;
+      case "system_design":
+        return <Cpu className={sizeClass} />;
+      default:
+        return <Award className={sizeClass} />;
+    }
+  };
+
+  // Find category for selected skill to display appropriate icon in detailed view
+  const selectedSkillCategory = selectedSkill
+    ? categories.find((c) => c.skills.some((s) => s.id === selectedSkill.id))
+    : undefined;
 
   return (
-    <main className="flex-1 w-full relative pb-24">
-      {/* Hero Section: Ongoing Mastery (Server Room background) */}
-      <section className="relative w-full min-h-[65vh] md:h-[820px] flex items-start md:items-end justify-start pt-4 md:pt-0 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: "url('/bg.png')" 
-            }}
-          />
-          {/* Cinematic dark gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
+    <main className="flex-1 w-full relative pb-24 px-[4%] md:px-12 mt-28">
+      {/* Page Title & Visual Cue */}
+      <div className="mb-12 text-left relative max-w-3xl">
+        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary-container/10 border border-primary-container/20 mb-3">
+          <span className="flex h-1.5 w-1.5 rounded-full bg-primary-container animate-pulse" />
+          <span className="text-[10px] font-bold text-primary-container uppercase tracking-widest font-mono">
+            Technical Expertise Ledger
+          </span>
         </div>
+        <h1 className="font-bebas text-4xl sm:text-6xl md:text-7xl text-on-surface tracking-wide uppercase leading-none">
+          Skills Dashboard
+        </h1>
+        <p className="text-secondary text-sm md:text-base max-w-2xl mt-4 leading-relaxed font-sans">
+          A modular inventory detailing core proficiencies, architectural methodologies, and specific stack specifications. Click on any individual node to inspect verified implementation and design patterns.
+        </p>
+      </div>
 
-        <div className="relative z-10 w-full px-[4%] pb-12">
-          <div className="max-w-3xl">
-            <h2 className="font-bebas text-2xl md:text-3xl text-primary-container mb-2 tracking-wider">
-              Ongoing Mastery
-            </h2>
-            <h1 className="font-bebas text-5xl md:text-[96px] text-on-surface mb-2 leading-tight pt-1 tracking-wide">
-              FASTAPI &amp; CLOUD INFRASTRUCTURE
-            </h1>
-            <p className="font-sans text-sm md:text-base text-secondary mb-8 max-w-2xl leading-relaxed">
-              Designing high-throughput asynchronous services, containerizing cloud-native pipelines, and orchestrating multi-agent LLM systems. The next season of backend performance optimization starts here.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button 
-                onClick={() => setViewProgressActive(true)}
-                className="bg-on-surface text-background font-bold text-sm md:text-base px-8 py-3 rounded-md flex items-center gap-2 hover:bg-secondary transition-colors cursor-pointer"
-              >
-                <Play className="w-5 h-5 fill-background text-background" />
-                View Progress
-              </button>
-              
-              <button 
-                onClick={() => {
-                  const fastApiSkill = categories
-                    .flatMap(c => c.skills)
-                    .find(s => s.id === "fastapi");
-                  if (fastApiSkill) setSelectedSkill(fastApiSkill);
-                }}
-                className="bg-surface-container-high bg-opacity-70 text-on-surface border border-outline-variant font-bold text-sm md:text-base px-8 py-3 rounded-md flex items-center gap-2 hover:bg-surface-container-highest transition-colors cursor-pointer"
-              >
-                <Info className="w-5 h-5 text-on-surface" />
-                More Info
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Primary Bento Grid Layout */}
+ 
 
-      {/* Progress Simulator Modal */}
-      {viewProgressActive && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-surface-container-low max-w-lg w-full rounded-lg border border-white/10 overflow-hidden shadow-2xl p-6">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="font-bebas text-2xl text-primary-container tracking-wide flex items-center gap-2">
-                <Terminal className="w-5 h-5" />
-                Backend &amp; AI Engineering Learning Curve
-              </h3>
-              <button onClick={() => setViewProgressActive(false)} className="text-secondary hover:text-white">✕</button>
-            </div>
-            
-            <p className="text-sm text-secondary mb-6 leading-relaxed">
-              My progressive path through asynchronous application patterns, cloud-native caching layers, relational tenant isolation, and agentic AI graphs:
-            </p>
+      {/* Core Capabilities Title */}
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="font-bebas text-2xl md:text-3xl text-on-surface tracking-wide uppercase">
+          Core Capabilities
+        </h2>
+      </div>
 
-            <div className="space-y-4 font-sans text-xs md:text-sm">
-              <div className="space-y-1">
-                <div className="flex justify-between font-semibold">
-                  <span>Asynchronous REST API Core (FastAPI)</span>
-                  <span className="text-green-500">100% Completed</span>
-                </div>
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full bg-green-500 w-full rounded-full" />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between font-semibold">
-                  <span>Relational Tenant Isolation &amp; PostgreSQL RLS</span>
-                  <span className="text-green-500">95% Completed</span>
-                </div>
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full bg-green-500 w-[95%] rounded-full" />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between font-semibold">
-                  <span>LangGraph Multi-Agent Workflows &amp; Vector Databases</span>
-                  <span className="text-primary-container">80% In Progress</span>
-                </div>
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary-container w-[80%] rounded-full" />
-                </div>
-              </div>
-            </div>
-
-            <button 
-              onClick={() => setViewProgressActive(false)}
-              className="mt-6 w-full bg-primary-container text-white py-2 rounded-md font-bold text-sm"
-            >
-              Close Ledger
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Category Rows of Skill Tiles */}
-      <div className="px-[4%] md:px-12 mt-12 flex flex-col gap-12">
+      {/* Bento Grid of Core Categories */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => (
-          <section key={category.id} className="relative group">
-            <h3 className="font-bebas text-2xl md:text-3xl text-on-surface mb-6 tracking-wide">
-              {category.title}
-            </h3>
-            
-            <div className="flex gap-4 overflow-x-auto hide-scrollbar pb-8 pt-2 snap-x">
-              {category.skills.map((skill) => (
-                <div
-                  key={skill.id}
-                  onClick={() => setSelectedSkill(skill)}
-                  className="skill-card flex-none w-64 md:w-80 aspect-video bg-surface-container-high rounded-lg overflow-hidden relative border border-white/5 hover:border-primary-container/50 snap-start cursor-pointer transition-all duration-300 hover:scale-[1.04]"
-                >
-                  <img 
-                    alt={skill.title} 
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
-                    src={skill.imageUrl} 
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  
-                  <div className="absolute bottom-0 left-0 p-4 w-full">
-                    <h4 className="font-bebas text-xl md:text-2xl text-on-surface mb-1 tracking-wide">
-                      {skill.title}
-                    </h4>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] md:text-xs font-bold text-green-500">
-                        {skill.matchScore}% Match
+          <div 
+            key={category.id} 
+            className="rounded-xl bg-surface-container-high/40 border border-white/5 p-5 md:p-6 flex flex-col justify-between hover:border-primary-container/20 hover:bg-surface-container-high/60 transition-all duration-300 shadow-md group/card"
+          >
+            <div>
+              {/* Category Header */}
+              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 rounded bg-primary-container/5 text-primary-container border border-primary-container/10 group-hover/card:bg-primary-container/10 group-hover/card:text-primary-container transition-colors duration-300">
+                    {getCategoryIcon(category.id, "w-5 h-5")}
+                  </div>
+                  <h3 className="font-bebas text-xl md:text-2xl text-on-surface tracking-wide uppercase">
+                    {category.title}
+                  </h3>
+                </div>
+                <span className="text-[10px] bg-white/5 text-secondary px-2 py-0.5 rounded font-mono font-semibold">
+                  {category.skills.length} Items
+                </span>
+              </div>
+
+              {/* Category Skills List */}
+              <div className="space-y-2.5">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.id}
+                    onClick={() => setSelectedSkill(skill)}
+                    className="flex items-center justify-between p-2.5 rounded-lg bg-background/25 border border-transparent hover:border-white/5 hover:bg-background/60 transition-all duration-200 cursor-pointer group/item"
+                  >
+                    <div className="flex flex-col min-w-0 pr-2">
+                      <span className="font-sans text-sm font-semibold text-on-surface group-hover/item:text-primary-container transition-colors truncate">
+                        {skill.title}
                       </span>
-                      <span className="text-[9px] md:text-[10px] text-secondary border border-surface-variant px-1.5 py-0.5 rounded uppercase font-semibold">
+                      <span className="text-[9px] text-secondary/60 uppercase tracking-wider font-semibold">
                         {skill.tag}
                       </span>
                     </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      <ChevronRight className="w-3.5 h-3.5 text-secondary/35 group-hover/item:text-primary-container group-hover/item:translate-x-0.5 transition-all" />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </section>
+          </div>
         ))}
       </div>
+
 
       {/* Skill Detailed Info Drawer/Modal */}
       <AnimatePresence>
@@ -187,16 +141,25 @@ export default function SkillsView({ categories }: SkillsViewProps) {
               className="bg-surface-container-low max-w-lg w-full rounded-lg border border-white/10 overflow-hidden shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="h-44 relative">
-                <img 
-                  src={selectedSkill.imageUrl} 
-                  alt={selectedSkill.title} 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent" />
+              {/* Dynamic fully-code-styled header replacing unmaintainable images */}
+              <div className="h-44 relative bg-gradient-to-br from-surface-container-highest to-surface-container-low flex flex-col items-center justify-center border-b border-white/5 overflow-hidden">
+                {/* Tech grid pattern overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent" />
+                
+                {/* Pulsing visual glow and category icon */}
+                <div className="relative z-10 flex flex-col items-center gap-2">
+                  <div className="p-4 rounded-full bg-primary-container/10 border border-primary-container/20 text-primary-container shadow-[0_0_20px_rgba(var(--primary-container),0.1)]">
+                    {getCategoryIcon(selectedSkillCategory?.id, "w-8 h-8")}
+                  </div>
+                  <span className="text-[10px] text-secondary/60 uppercase tracking-widest font-mono font-bold">
+                    {selectedSkillCategory?.title || "Core Capability"}
+                  </span>
+                </div>
+                
                 <button 
                   onClick={() => setSelectedSkill(null)} 
-                  className="absolute top-4 right-4 bg-black/60 text-white rounded-full p-1.5 hover:bg-black/95 transition-colors"
+                  className="absolute top-4 right-4 bg-black/60 text-white rounded-full p-1.5 hover:bg-black/95 transition-colors z-20"
                 >
                   ✕
                 </button>
@@ -205,9 +168,6 @@ export default function SkillsView({ categories }: SkillsViewProps) {
               <div className="p-6 space-y-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <span className="text-xs font-bold text-green-500 uppercase tracking-widest block mb-1">
-                      {selectedSkill.matchScore}% Match Rate
-                    </span>
                     <h3 className="font-bebas text-3xl text-on-surface tracking-wide leading-none">
                       {selectedSkill.title}
                     </h3>
@@ -221,19 +181,21 @@ export default function SkillsView({ categories }: SkillsViewProps) {
                   {selectedSkill.details}
                 </p>
 
-                <div className="border-t border-white/5 pt-4">
-                  <h4 className="text-xs font-bold uppercase text-secondary/70 tracking-widest mb-3">
-                    Demonstrated Proficiency Specs
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-secondary font-medium">
-                    {(selectedSkill.specs).map((spec, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary-container shrink-0" />
-                        <span className="truncate" title={spec}>{spec}</span>
-                      </div>
-                    ))}
+                {selectedSkill.specs && selectedSkill.specs.length > 0 && (
+                  <div className="border-t border-white/5 pt-4">
+                    <h4 className="text-xs font-bold uppercase text-secondary/70 tracking-widest mb-3">
+                      Demonstrated Proficiency Specs
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-secondary font-medium">
+                      {selectedSkill.specs.map((spec, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-primary-container shrink-0" />
+                          <span className="truncate" title={spec}>{spec}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.div>
           </motion.div>
