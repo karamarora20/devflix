@@ -44,37 +44,37 @@ export default function NavBar({
             onClick={() => handleTabClick("home")}
             className="font-bebas text-4xl text-primary-container tracking-tighter cursor-pointer hover:opacity-95 transition-opacity"
           >
-            PORTFOLIO
+            DEVFLIX
           </div>
           {/* Nav Links */}
           <div className="flex gap-6">
             <button
               onClick={() => handleTabClick("home")}
-              className={`font-semibold text-sm transition-all duration-200 hover:scale-105 hover:text-on-surface ${activeTab === "home" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
+              className={`font-semibold text-sm transition-all duration-200 cursor-pointer hover:scale-105 hover:text-on-surface ${activeTab === "home" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
                 }`}
             >
-              Home
+              Home Stream
             </button>
             <button
               onClick={() => handleTabClick("projects")}
-              className={`font-semibold text-sm transition-all duration-200 hover:scale-105 hover:text-on-surface ${activeTab === "projects" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
+              className={`font-semibold text-sm transition-all duration-200 cursor-pointer hover:scale-105 hover:text-on-surface ${activeTab === "projects" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
                 }`}
             >
-              Projects
+              Projects Catalog
             </button>
             <button
               onClick={() => handleTabClick("skills")}
-              className={`font-semibold text-sm transition-all duration-200 hover:scale-105 hover:text-on-surface ${activeTab === "skills" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
+              className={`font-semibold text-sm transition-all duration-200 cursor-pointer hover:scale-105 hover:text-on-surface ${activeTab === "skills" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
                 }`}
             >
-              Skills
+              Mastery Skills
             </button>
             <button
               onClick={() => handleTabClick("contact")}
-              className={`font-semibold text-sm transition-all duration-200 hover:scale-105 hover:text-on-surface ${activeTab === "contact" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
+              className={`font-semibold text-sm transition-all duration-200 cursor-pointer hover:scale-105 hover:text-on-surface ${activeTab === "contact" ? "text-on-surface font-bold border-b-2 border-primary-container pb-1" : "text-secondary"
                 }`}
             >
-              Contact
+              Contact Director
             </button>
           </div>
         </div>
@@ -83,9 +83,9 @@ export default function NavBar({
           {/* Download Resume Button */}
           <button
             onClick={onResumeDownload}
-            className="bg-primary-container text-white px-4 py-2 rounded font-semibold text-xs hover:opacity-85 transition-all duration-200 flex items-center gap-2 cursor-pointer"
+            className="bg-surface-container-high/60 hover:bg-surface-container-highest/90 border border-white/10 hover:border-primary-container/60 text-on-surface hover:text-white px-4 py-2 rounded-md font-semibold text-xs transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(229,9,20,0.25)] group"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3.5 h-3.5 text-primary-container group-hover:scale-110 transition-transform" />
             Download Resume
           </button>
 
@@ -110,7 +110,7 @@ export default function NavBar({
           onClick={() => handleTabClick("home")}
           className="font-bebas text-2xl text-primary-container tracking-tighter"
         >
-          PORTFOLIO
+          DEVFLIX
         </span>
         <div className="flex items-center gap-4">
           <img
