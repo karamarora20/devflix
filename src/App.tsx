@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from "react";
 import { Project, SkillCategory, Notification, Message } from "./types";
-import { PROJECTS_DATA, SKILLS_DATA, MOCK_NOTIFICATIONS, ACTIVE_FOCUS_DATA, MY_PROFILE } from "./data";
+import { PROJECTS_DATA, SKILLS_DATA, ACTIVE_FOCUS_DATA, MY_PROFILE } from "./data";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Billboard from "./components/Billboard";
@@ -29,7 +29,8 @@ export default function App() {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
   // Data State
-  const [notifications, setNotifications] = useState<Notification[]>(MOCK_NOTIFICATIONS);
+  // turn off notifications for now
+  const [notifications, setNotifications] = useState<Notification[]>([]);
   const [sentMessages, setSentMessages] = useState<Message[]>([]);
 
   // Load sent messages from localStorage
@@ -170,7 +171,12 @@ export default function App() {
           <div className="animate-fade-in space-y-2 md:space-y-4">
             {/* Billboard Hero */}
             <Billboard onPlayClick={() => {
-              setSelectedProjectId("multimodal_rag");
+              const latestProject = [...PROJECTS_DATA].sort((a, b) => {
+                const yearCompare = b.year.localeCompare(a.year);
+                if (yearCompare !== 0) return yearCompare;
+                return a.title.localeCompare(b.title);
+              })[0];
+              setSelectedProjectId(latestProject ? latestProject.id : "multimodal_rag");
               setActiveTab("projects");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
@@ -181,7 +187,7 @@ export default function App() {
             {/* Curated Rail 1: Trending Now / Blockbuster Matches */}
             <ProjectRail
               title="Trending Now"
-              projects={PROJECTS_DATA.filter((p) => p.matchScore >= 96)}
+              projects={PROJECTS_DATA.filter((p) => p.year >= "2025")}
               onProjectClick={(id) => {
                 setSelectedProjectId(id);
                 setActiveTab("projects");
@@ -204,7 +210,7 @@ export default function App() {
                 onProjectSelect={setSelectedProjectId}
                 onBackClick={() => {
                   setSelectedProjectId(null);
-                  setActiveTab("home");
+                  setActiveTab("projects");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               />
