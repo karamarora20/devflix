@@ -23,7 +23,6 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
     { label: "Algorithms", val: "400+ LeetCode", icon: <Cpu className="w-4 h-4 text-red-500" /> },
     { label: "APIs In Prod", val: "50+ Active", icon: <Terminal className="w-4 h-4 text-red-500" /> },
     { label: "Cloud Badge", val: "AWS Certified", icon: <Zap className="w-4 h-4 text-red-500" /> },
-    { label: "RAG Accuracy", val: "+70% Gain", icon: <Sparkles className="w-4 h-4 text-red-500" /> }
   ];
 
   const interviewQA = [
@@ -61,7 +60,7 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
           <span className="text-secondary tracking-widest text-xs font-bold uppercase">Original Developer Series</span>
         </div>
 
-        <h1 className="font-bebas text-6xl sm:text-7xl md:text-[120px] text-on-surface leading-none pt-2 mb-3 tracking-wide drop-shadow-xl select-none">
+        <h1 className="font-bebas text-3xl sm:text-5xl md:text-[96px] text-on-surface leading-none pt-2 mb-3 tracking-wide drop-shadow-xl select-none">
           KARAM ARORA
         </h1>
 
@@ -81,7 +80,7 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
           {/* View Latest Work Button */}
           <button
             onClick={onPlayClick}
-            className="bg-white text-black px-8 py-3 rounded-md hover:bg-opacity-80 transition-all duration-200 font-bold text-sm md:text-base flex items-center gap-2 shadow-lg hover:scale-[1.03]"
+            className="bg-white text-black px-8 py-3 rounded-md cursor-pointer hover:bg-opacity-80 transition-all duration-200 font-bold text-sm md:text-base flex items-center gap-2 shadow-lg hover:scale-[1.03]"
           >
             <Play className="w-5 h-5 fill-black text-black" />
             View Latest Work
@@ -219,63 +218,6 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
                         </div>
                       );
                     })}
-                  </motion.div>
-                )}
-
-                {/* Tab 3: Production Specs / Gear */}
-                {activeTab === "specs" && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs"
-                  >
-                    <div className="space-y-3 bg-surface-container-low/50 p-4 rounded border border-white/5">
-                      <h4 className="font-mono font-bold text-[10px] text-red-500 uppercase tracking-wider mb-2">Core Core Engine (Backend)</h4>
-                      <div className="space-y-2">
-                        <div>
-                          <div className="flex justify-between font-mono text-[10px] text-secondary mb-1">
-                            <span>FastAPI, Python &amp; AsyncIO</span>
-                            <span>Expert</span>
-                          </div>
-                          <div className="w-full h-1 bg-surface-container rounded-full overflow-hidden">
-                            <div className="h-full bg-red-600 rounded-full" style={{ width: "98%" }} />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="flex justify-between font-mono text-[10px] text-secondary mb-1">
-                            <span>PostgreSQL Row-Level Security</span>
-                            <span>Expert</span>
-                          </div>
-                          <div className="w-full h-1 bg-surface-container rounded-full overflow-hidden">
-                            <div className="h-full bg-red-600 rounded-full" style={{ width: "95%" }} />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3 bg-surface-container-low/50 p-4 rounded border border-white/5">
-                      <h4 className="font-mono font-bold text-[10px] text-red-500 uppercase tracking-wider mb-2">Cognitive Systems (Applied AI)</h4>
-                      <div className="space-y-2">
-                        <div>
-                          <div className="flex justify-between font-mono text-[10px] text-secondary mb-1">
-                            <span>LangGraph Multi-Agent Workflows</span>
-                            <span>Expert</span>
-                          </div>
-                          <div className="w-full h-1 bg-surface-container rounded-full overflow-hidden">
-                            <div className="h-full bg-red-600 rounded-full" style={{ width: "96%" }} />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="flex justify-between font-mono text-[10px] text-secondary mb-1">
-                            <span>Hybrid Search &amp; RAG Systems</span>
-                            <span>Expert</span>
-                          </div>
-                          <div className="w-full h-1 bg-surface-container rounded-full overflow-hidden">
-                            <div className="h-full bg-red-600 rounded-full" style={{ width: "98%" }} />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </motion.div>
                 )}
               </div>
