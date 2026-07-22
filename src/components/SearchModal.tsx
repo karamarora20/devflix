@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { Project, SkillCategory } from "../types";
 import { Search, Film, Award, ArrowRight } from "lucide-react";
+import ProjectPoster from "./ProjectPoster";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -116,9 +117,8 @@ export default function SearchModal({
                         className="flex items-center justify-between p-3 rounded bg-white/5 hover:bg-white/10 border border-white/5 transition-colors cursor-pointer group"
                       >
                         <div className="flex items-center gap-3">
-                          <img src={p.posterUrl} alt={p.title} className="w-10 h-14 object-cover rounded" referrerPolicy="no-referrer" />
+                          <ProjectPoster project={p} aspectRatio="poster" className="w-10 h-14 shrink-0 rounded overflow-hidden" hoverScale={false} />
                           <div>
-                            <span className="text-green-500 font-bold text-xs">{p.matchScore}% Match</span>
                             <h5 className="font-semibold text-sm text-on-surface group-hover:text-primary-container transition-colors">{p.title}</h5>
                             <p className="text-xs text-secondary/70 truncate max-w-sm">{p.genres.join(" • ")}</p>
                           </div>
