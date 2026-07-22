@@ -11,10 +11,6 @@ export interface Feature {
   thumbnailUrl: string;
 }
 
-export interface Proficiency {
-  label: string;
-  percentage: number;
-}
 
 export interface Review {
   id: string;
@@ -40,7 +36,6 @@ export interface ActiveFocus {
 export interface Project {
   id: string;
   title: string;
-  matchScore: number;
   year: string;
   level: "Advanced" | "Intermediate" | "Expert" | "Beginner";
   edition: string;
@@ -52,7 +47,6 @@ export interface Project {
   techStack: string;
   role: string;
   duration: string;
-  proficiency: Proficiency[];
   reviews?: Review[];
   url?: string;
 }
@@ -60,7 +54,6 @@ export interface Project {
 export interface Skill {
   id: string;
   title: string;
-  matchScore: number;
   tag: string;
   imageUrl: string;
   details: string;
