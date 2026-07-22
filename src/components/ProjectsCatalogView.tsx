@@ -3,6 +3,7 @@ import { Project } from "../types";
 import { MY_PROFILE } from "../data";
 import { Search, Filter, Star, Code, BarChart2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import ProjectPoster from "./ProjectPoster";
 
 interface ProjectsCatalogViewProps {
   projects: Project[];
@@ -47,9 +48,6 @@ export default function ProjectsCatalogView({
 
   // Sorting logic
   const sorted = [...filtered].sort((a, b) => {
-    if (sortBy === "match") {
-      return b.matchScore - a.matchScore;
-    }
     if (sortBy === "year") {
       return b.year.localeCompare(a.year);
     }
@@ -111,7 +109,7 @@ export default function ProjectsCatalogView({
         <div className="space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <h1 className="font-bebas text-5xl md:text-7xl text-on-surface tracking-wide uppercase leading-none">
+              <h1 className="font-bebas text-3xl sm:text-5xl md:text-[96px] text-on-surface tracking-wide uppercase leading-none">
                 Catalog Titles
               </h1>
               <p className="text-secondary text-sm max-w-md mt-2">
@@ -162,7 +160,6 @@ export default function ProjectsCatalogView({
                 onChange={(e) => setSortBy(e.target.value as any)}
                 className="bg-surface-container-high border border-white/10 text-on-surface text-xs rounded-md px-3 py-2 cursor-pointer focus:outline-none focus:border-primary-container transition-all"
               >
-                <option value="match">Highest Match Score</option>
                 <option value="year">Release Year (Newest)</option>
                 <option value="level">Level (Expert First)</option>
               </select>
@@ -191,24 +188,12 @@ export default function ProjectsCatalogView({
                 >
                   {/* Poster Display */}
                   <div className="aspect-[16/10] sm:aspect-[2/3] overflow-hidden relative">
-                    <img 
-                      src={p.posterUrl} 
-                      alt={p.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                    />
+                    <ProjectPoster project={p} aspectRatio="wide" className="sm:aspect-[2/3]" hoverScale={true} />
                     {/* Subtle vignette gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                    
-                    {/* Match Score Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-bold text-green-500 bg-black/80 backdrop-blur px-2.5 py-1 rounded shadow-md border border-white/5 font-mono">
-                        {p.matchScore}% Match
-                      </span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none z-10" />
 
                     {/* Level text */}
-                    <div className="absolute bottom-3 left-3">
+                    <div className="absolute bottom-3 left-3 z-20">
                       <span className="font-mono text-[9px] text-white font-extrabold bg-red-600/90 px-1.5 py-0.5 rounded tracking-wide uppercase shadow">
                         {p.level}
                       </span>
