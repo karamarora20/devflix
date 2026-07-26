@@ -89,7 +89,7 @@ export default function Billboard({ onPlayClick }: BillboardProps) {
           {/* More Info Button */}
           <button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
-            className={`px-8 py-3 rounded-md transition-all duration-200 font-bold text-sm md:text-base flex items-center gap-2 border shadow-md hover:scale-[1.03] ${
+            className={`px-8 py-3 cursor-pointer rounded-md transition-all duration-200 font-bold text-sm md:text-base flex items-center gap-2 border shadow-md hover:scale-[1.03] ${
               showMoreInfo 
                 ? "bg-red-600 border-red-500 text-white" 
                 : "bg-surface-container/80 backdrop-blur border-surface-variant border-opacity-50 text-white hover:bg-surface-variant"
