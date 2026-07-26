@@ -39,11 +39,11 @@ export default function ProjectDetailView({
       </button>
 
       {/* Hero Section (Massive Billboard) */}
-      <section className="relative w-full min-h-[70vh] md:h-[820px] flex items-start md:items-end justify-start pt-4 md:pt-0 overflow-hidden">
+      <section className="relative w-full pt-24 pb-8 md:pt-0 md:pb-0 md:h-[820px] flex items-start md:items-end justify-start overflow-hidden">
         {/* Background Image Container */}
         <div className="absolute inset-0 w-full h-full z-0">
           <div 
-            className="w-full h-full bg-cover bg-center bg-no-repeat transform scale-102"
+            className="w-full h-full bg-cover bg-center bg-no-repeat transform scale-102 blur-[4px]"
             style={{ backgroundImage: `url('${project.billboardUrl}')` }}
           />
           {/* Cinematic dark gradients */}
@@ -172,7 +172,7 @@ export default function ProjectDetailView({
       )}
 
       {/* Detailed Content Container */}
-      <div className="w-full px-[4%] md:px-12 mt-16">
+      <div className="w-full px-[4%] md:px-12 mt-6 md:mt-16">
         {/* Section Tab Selectors */}
         <div className="flex items-center gap-8 border-b border-surface-variant/30 mb-12">
           <button 
