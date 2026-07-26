@@ -270,25 +270,25 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
               initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
-              className="bg-surface-container-low max-w-2xl w-full rounded-lg border border-white/10 overflow-hidden shadow-2xl relative"
+              className="bg-surface-container-low max-w-2xl w-full max-h-[80vh] sm:max-h-[85vh] flex flex-col rounded-lg border border-white/10 overflow-hidden shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-surface-container-high px-6 py-4 border-b border-white/5 flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary-container" />
-                  <span className="font-semibold text-sm tracking-wide font-sans">
+              <div className="bg-surface-container-high px-4 py-3 md:px-6 md:py-4 border-b border-white/5 flex justify-between items-center shrink-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <FileText className="w-5 h-5 text-primary-container shrink-0" />
+                  <span className="font-semibold text-sm tracking-wide font-sans truncate">
                     Karam Arora Resume.pdf - Reader Mode
                   </span>
                 </div>
                 <button
                   onClick={() => setShowResume(false)}
-                  className="text-secondary hover:text-white"
+                  className="text-secondary hover:text-white p-1 shrink-0"
                 >
                   ✕
                 </button>
               </div>
 
-              <div className="p-8 space-y-6 max-h-[70vh] overflow-y-auto font-sans text-xs md:text-sm text-secondary leading-relaxed">
+              <div className="p-4 sm:p-6 md:p-8 space-y-6 max-h-[50vh] sm:max-h-[60vh] md:max-h-[70vh] overflow-y-auto font-sans text-xs md:text-sm text-secondary leading-relaxed flex-1">
                 <div className="text-center space-y-2 border-b border-white/5 pb-6">
                   <h2 className="font-bebas text-4xl text-on-surface tracking-wide leading-none">KARAM ARORA</h2>
                   <p className="text-primary-container font-semibold">SDE 1 — Backend &amp; AI Systems Engineer</p>
@@ -370,7 +370,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
                 </div>
               </div>
 
-              <div className="p-4 bg-surface-container-high border-t border-white/5 flex justify-end">
+              <div className="p-3 md:p-4 bg-surface-container-high border-t border-white/5 flex justify-end shrink-0">
                 <button
                   onClick={() => setShowResume(false)}
                   className="bg-primary-container cursor-pointer text-white px-5 py-2 rounded font-semibold text-xs hover:opacity-85"
