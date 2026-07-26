@@ -21,7 +21,7 @@ export const MY_PROFILE = {
   avatarUrl: userAvatar,
   portraitUrl: userAvatar,
   workspaceBackground: "/bg.png",
-  bio: "Backend Engineer with 2 years of production experience building scalable APIs, distributed systems, and cloud-native applications on AWS. My work sits at the intersection of Backend Engineering and Applied AI, where I design systems that combine reliable infrastructure with modern LLM capabilities. I've built multimodal RAG platforms, agentic workflows, hybrid search systems, event-driven architectures, and high-performance backend services used in production environments.",
+  bio: "Backend Engineer with 2+ years of production experience building scalable APIs, distributed systems, and cloud-native applications on AWS. My work sits at the intersection of Backend Engineering and Applied AI, where I design systems that combine reliable infrastructure with modern LLM capabilities. I've built multimodal RAG platforms, agentic workflows, hybrid search systems, event-driven architectures, and high-performance backend services used in production environments.",
   genres: ["Python", "FastAPI", "AWS", "NoSQL", "LangGraph", "Docker", "RAG Systems"],
   resumeUrl: "https://drive.google.com/file/d/1lfaIxNrlx4yEGvB8Bmnc4nuzgQ91gY8Y/view?usp=drive_link"
 };
