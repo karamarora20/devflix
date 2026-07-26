@@ -44,7 +44,7 @@ export default function NavBar({
             onClick={() => handleTabClick("home")}
             className="font-bebas text-4xl text-primary-container tracking-tighter cursor-pointer hover:opacity-95 transition-opacity"
           >
-            DEVFLIX
+            PORTFOLIO
           </div>
           {/* Nav Links */}
           <div className="flex gap-6">
@@ -110,7 +110,7 @@ export default function NavBar({
           onClick={() => handleTabClick("home")}
           className="font-bebas text-2xl text-primary-container tracking-tighter"
         >
-          DEVFLIX
+          PORTFOLIO
         </span>
         <div className="flex items-center gap-4">
           <img
