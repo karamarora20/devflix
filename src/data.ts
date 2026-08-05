@@ -29,7 +29,7 @@ export const MY_PROFILE = {
 export const ACTIVE_FOCUS_DATA: ActiveFocus[] = [
   {
     id: "active_1",
-    title: "Software Developer (SDE 1)",
+    title: "AI Engineer",
     role: "Backend & AI Systems Builder",
     company: "Genpact",
     progress: 100,
