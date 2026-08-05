@@ -305,7 +305,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-xs">
-                      <span className="font-bold text-on-surface">Software Developer - Genpact, Bengaluru</span>
+                      <span className="font-bold text-on-surface">AI Engineer - Genpact, Bengaluru</span>
                       <span className="font-mono text-secondary">Jul 2024 - Present</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 pl-2 text-secondary/80 text-xs">
