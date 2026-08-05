@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 export default function ExperienceEducation() {
   const experiences = [
     {
-      role: "Software Developer (SDE 1)",
+      role: "AI Engineer",
       company: "Genpact",
       period: "Jul 2024 - Present",
       location: "Bengaluru, India",
