@@ -98,7 +98,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-4">
                   <dt className="text-secondary w-24 flex-shrink-0 font-medium">Producer:</dt>
-                  <dd className="text-on-surface font-semibold">SDE 1 Backend &amp; AI Systems</dd>
+                  <dd className="text-on-surface font-semibold">AI Engineer — Backend &amp; AI Systems</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-4">
                   <dt className="text-secondary w-24 flex-shrink-0 font-medium">Genres:</dt>
