@@ -291,7 +291,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
               <div className="p-4 sm:p-6 md:p-8 space-y-6 max-h-[50vh] sm:max-h-[60vh] md:max-h-[70vh] overflow-y-auto font-sans text-xs md:text-sm text-secondary leading-relaxed flex-1">
                 <div className="text-center space-y-2 border-b border-white/5 pb-6">
                   <h2 className="font-bebas text-4xl text-on-surface tracking-wide leading-none">KARAM ARORA</h2>
-                  <p className="text-primary-container font-semibold">SDE 1 — Backend &amp; AI Systems Engineer</p>
+                  <p className="text-primary-container font-semibold">AI Engineer — Backend &amp; AI Systems Engineer</p>
                   <p className="text-xs font-mono">
                     <a href="mailto:karam.arora2002@gmail.com" className="hover:text-primary-container hover:underline transition-colors">karam.arora2002@gmail.com</a> | <a href="tel:+91-8368055676" className="hover:text-primary-container hover:underline transition-colors">+91-8368055676</a> | Bengaluru, India
                   </p>
