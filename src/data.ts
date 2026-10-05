@@ -23,23 +23,34 @@ export const MY_PROFILE = {
   workspaceBackground: "/bg.png",
   bio: "Backend Engineer with 2+ years of production experience building scalable APIs, distributed systems, and cloud-native applications on AWS. My work sits at the intersection of Backend Engineering and Applied AI, where I design systems that combine reliable infrastructure with modern LLM capabilities. I've built multimodal RAG platforms, agentic workflows, hybrid search systems, event-driven architectures, and high-performance backend services used in production environments.",
   genres: ["Python", "FastAPI", "AWS", "NoSQL", "LangGraph", "Docker", "RAG Systems"],
-  resumeUrl: "https://drive.google.com/file/d/1lfaIxNrlx4yEGvB8Bmnc4nuzgQ91gY8Y/view?usp=drive_link"
+  resumeUrl: "https://drive.google.com/file/d/1hCW0YxoFtErweemu4Bf1NY-KbIyL7d18/view?usp=drive_link"
 };
 
 export const ACTIVE_FOCUS_DATA: ActiveFocus[] = [
-  {
+    {
     id: "active_1",
-    title: "AI Engineer",
+    title: "Senior AI Engineer",
     role: "Backend & AI Systems Builder",
     company: "Genpact",
     progress: 100,
-    duration: "Jul 2024 - Present",
+    duration: "Oct 2026 - Present",
     description: "Designing and scaling cloud-native REST APIs, event-driven message queues, and high-performance retrieval-augmented generation (RAG) pipelines on AWS. Orchestrating containerized microservices and optimizing database transaction speeds.",
     posterUrl: "/active_focus_sde.jpg",
     status: "ACTIVE NOW"
   },
   {
     id: "active_2",
+    title: "AI Engineer",
+    role: "Backend & AI Systems Builder",
+    company: "Genpact",
+    progress: 100,
+    duration: "Jul 2024 - Oct 2026",
+    description: "Designing and scaling cloud-native REST APIs, event-driven message queues, and high-performance retrieval-augmented generation (RAG) pipelines on AWS. Orchestrating containerized microservices and optimizing database transaction speeds.",
+    posterUrl: "/active_focus_sde.jpg",
+    status: "COMPLETED"
+  },
+  {
+    id: "active_3",
     title: "Application Engineering Intern",
     role: "Cloud Backend Developer",
     company: "Genpact",

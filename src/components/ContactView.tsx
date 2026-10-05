@@ -98,7 +98,7 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-4">
                   <dt className="text-secondary w-24 flex-shrink-0 font-medium">Producer:</dt>
-                  <dd className="text-on-surface font-semibold">AI Engineer — Backend &amp; AI Systems</dd>
+                  <dd className="text-on-surface font-semibold">Senior AI Engineer — Backend &amp; AI Systems</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-4">
                   <dt className="text-secondary w-24 flex-shrink-0 font-medium">Genres:</dt>
@@ -291,12 +291,16 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
               <div className="p-4 sm:p-6 md:p-8 space-y-6 max-h-[50vh] sm:max-h-[60vh] md:max-h-[70vh] overflow-y-auto font-sans text-xs md:text-sm text-secondary leading-relaxed flex-1">
                 <div className="text-center space-y-2 border-b border-white/5 pb-6">
                   <h2 className="font-bebas text-4xl text-on-surface tracking-wide leading-none">KARAM ARORA</h2>
-                  <p className="text-primary-container font-semibold">AI Engineer — Backend &amp; AI Systems Engineer</p>
+                  <p className="text-primary-container font-semibold">Senior AI Engineer — Backend &amp; AI Systems Engineer</p>
                   <p className="text-xs font-mono">
                     <a href="mailto:karam.arora2002@gmail.com" className="hover:text-primary-container hover:underline transition-colors">karam.arora2002@gmail.com</a> | <a href="tel:+91-8368055676" className="hover:text-primary-container hover:underline transition-colors">+91-8368055676</a> | Bengaluru, India
                   </p>
-                  <p className="text-[10px] text-secondary/60 font-mono">
-                    <a href="https://github.com/karamarora20" target="_blank" rel="noopener noreferrer" className="hover:text-primary-container hover:underline transition-colors">github.com/karamarora20</a> | <a href="https://www.linkedin.com/in/karam-arora-896952200/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-container hover:underline transition-colors">linkedin.com/in/karam-arora-896952200</a> | <a href="https://leetcode.com/u/arorakaram41" target="_blank" rel="noopener noreferrer" className="hover:text-primary-container hover:underline transition-colors">leetcode.com/u/arorakaram41</a>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="font-bebas text-xl text-on-surface tracking-wide border-b border-white/5 pb-1">Summary</h3>
+                  <p className="text-secondary/80 text-xs md:text-sm">
+                    Backend engineer with 2+ years of production experience building scalable APIs, event-driven pipelines, and cloud-native systems on AWS. Applied that foundation to AI — designing retrieval systems, agentic pipelines, and LLM infrastructure that solves real accuracy and scalability problems.
                   </p>
                 </div>
 
@@ -305,50 +309,56 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-xs">
-                      <span className="font-bold text-on-surface">AI Engineer - Genpact, Bengaluru</span>
-                      <span className="font-mono text-secondary">Jul 2024 - Present</span>
+                      <span className="font-bold text-on-surface">Senior AI Engineer | Genpact, Bengaluru</span>
+                      <span className="font-mono text-secondary">Oct 2026 – Present</span>
+                    </div>
+                    <div className="flex justify-between items-center text-xs">
+                      <span className="font-bold text-on-surface">AI Engineer | Genpact, Bengaluru</span>
+                      <span className="font-mono text-secondary">Jul 2024 – Sep 2026</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 pl-2 text-secondary/80 text-xs">
-                      <li>Led the design &amp; delivery of an AWS-based multimodal RAG system handling 1,000 concurrent users under sub-10s latency, boosting search correctness by 70%.</li>
-                      <li>Engineered OpenSearch hybrid search pipelines (BM25 + vector + reranking) to optimize retrieval correctness on evaluated queries by 20%.</li>
-                      <li>Designed DynamoDB single-table schemas for a warehouse inventory system handling 400K+ SKUs, guaranteeing single-digit millisecond latency.</li>
-                      <li>Architected a fault-tolerant document ingestion pipeline using Lambda, SQS, and S3 with exponential backoff and dead-letter queues.</li>
-                      <li>Built and maintained 50+ backend APIs using FastAPI, PostgreSQL, and MongoDB across AWS and Azure cloud platforms.</li>
+                      <li>Led design and delivery of a multimodal RAG system on AWS (Bedrock, OpenSearch, S3), handling 1,000 concurrent users under sub-10s latency — replaced Textract OCR with LLM-generated image descriptions (+70% retrieval accuracy) and added a hybrid BM25 + vector search pipeline with a reranker (+20% correctness over dense-only baseline).</li>
+                      <li>Designed single-table DynamoDB schema with GSIs for the stock management system, handling 400K+ SKUs at single-digit millisecond read latency.</li>
+                      <li>Architected a fault-tolerant async document ingestion pipeline using AWS Lambda, SQS, and S3, with exponential backoff and dead-letter queues for failed messages.</li>
+                      <li>Built backend systems and database design for 4 production-grade Gen AI POCs under a Genpact–AWS partnership across supply chain domains, adopted by Technical Consulting for client deployment pitches.</li>
+                      <li>Built and maintained backend APIs and services using FastAPI, PostgreSQL, and MongoDB across AWS and Azure, supporting production workflow systems.</li>
                     </ul>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-xs">
-                      <span className="font-bold text-on-surface">Application Engineering Intern - Genpact, Bengaluru</span>
-                      <span className="font-mono text-secondary">Jan 2024 - Jun 2024</span>
+                      <span className="font-bold text-on-surface">Application Engineering Intern | Genpact, Bengaluru</span>
+                      <span className="font-mono text-secondary">Jan 2024 – Jun 2024</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 pl-2 text-secondary/80 text-xs">
-                      <li>Developed full-stack RAG solutions with Angular, Python, and AWS Bedrock/Kendra for intelligent document search.</li>
+                      <li>Built a full-stack RAG application using Angular, Python, AWS Bedrock, and Amazon Kendra for intelligent document retrieval and question-answering, contributing to cloud deployment and event-driven indexing pipelines.</li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="font-bebas text-xl text-on-surface tracking-wide border-b border-white/5 pb-1">Key Projects</h3>
+                  <h3 className="font-bebas text-xl text-on-surface tracking-wide border-b border-white/5 pb-1">Projects</h3>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-xs">
                       <span className="font-bold text-on-surface">TenantGuard — Multi-Tenant SaaS Backend</span>
-                      <span className="font-mono text-secondary">Python, FastAPI, Postgres RLS</span>
+                      <span className="font-mono text-secondary">FastAPI, PostgreSQL RLS</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 pl-2 text-secondary/80 text-xs">
-                      <li>Architected PostgreSQL Row-Level Security (RLS) policies for complete database tenant isolation.</li>
-                      <li>Configured Redis sliding-window rate limiters and RBAC subscription metrics.</li>
+                      <li>Architected a multi-tenant SaaS backend using FastAPI and PostgreSQL Row-Level Security (RLS), enforcing tenant isolation at the database layer — making cross-tenant data leaks structurally impossible even if application code has a bug, with JWT authentication and session-scoped tenant context.</li>
+                      <li>Implemented Redis-backed sliding-window rate limiting and Role-Based Access Control (RBAC) with subscription-aware quotas for Free, Pro, and Enterprise tenants.</li>
+                      <li>Built asynchronous REST APIs using SQLAlchemy Async for order and invoice management, with per-tenant API usage metering, an invoice state machine (draft→issued→paid/void), and overage-based billing simulation.</li>
                     </ul>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-xs">
-                      <span className="font-bold text-on-surface">Automated Test Generation &amp; Execution System</span>
+                      <span className="font-bold text-on-surface">Automated Test Generation and Execution System</span>
                       <span className="font-mono text-secondary">LangGraph, ChromaDB</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 pl-2 text-secondary/80 text-xs">
-                      <li>Engineered a 3-agent graph using LangGraph to automatically parse user stories and generate integration tests with a 70% pass rate.</li>
+                      <li>Built a 3-agent LangGraph pipeline (Scenario Generator, Validator, Test Generator) that converts user stories and acceptance criteria into executable integration tests, achieving a 70% pass rate across a 20-API backend.</li>
+                      <li>Implemented RAG-based API selection using ChromaDB and OpenAPI specs to scope test generation to only relevant endpoints, with async execution, persistent state, failure recovery, and non-blocking email notifications.</li>
                     </ul>
                   </div>
                 </div>
@@ -356,16 +366,16 @@ export default function ContactView({ onSendMessage, sentMessages, onDeleteMessa
                 <div className="space-y-4 pt-2">
                   <h3 className="font-bebas text-xl text-on-surface tracking-wide border-b border-white/5 pb-1">Education</h3>
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-on-surface">NIIT University - B.Tech in Computer Science</span>
-                    <span className="font-mono text-secondary">2020 - 2024 | CGPA: 8.15 / 10</span>
+                    <span className="font-bold text-on-surface">B.Tech in Computer Science at NIIT University</span>
+                    <span className="font-mono text-secondary">2020 – 2024 | CGPA: 8.15/10</span>
                   </div>
                 </div>
 
                 <div className="space-y-4 pt-2">
                   <h3 className="font-bebas text-xl text-on-surface tracking-wide border-b border-white/5 pb-1">Certifications &amp; Achievements</h3>
                   <ul className="list-disc list-inside space-y-1 pl-2 text-secondary/80 text-xs font-sans">
-                    <li><span className="font-bold text-on-surface">LeetCode Problem Solving:</span> Solved 400+ DSA problems covering algorithms and optimization.</li>
-                    <li><span className="font-bold text-on-surface">AWS Certified Cloud Practitioner:</span> Earned the AWS CCP certification (Valid 2025 - 2028).</li>
+                    <li><span className="font-bold text-on-surface">LeetCode Problem Solving:</span> Ongoing — solved 400+ DSA problems covering algorithms, data structures, and optimization techniques.</li>
+                    <li><span className="font-bold text-on-surface">AWS Certified Cloud Practitioner:</span> Earned the AWS Certified Cloud Practitioner certification (2025 – 2028).</li>
                   </ul>
                 </div>
               </div>

@@ -9,17 +9,27 @@ import { motion } from "motion/react";
 export default function ExperienceEducation() {
   const experiences = [
     {
+      role: "Senior AI Engineer",
+      company: "Genpact",
+      period: "Oct 2026 - Present",
+      location: "Bengaluru, India",
+      achievements: [
+        "Built backend systems and database design for 4 production-grade Gen AI POCs under a Genpact–AWS partnership across supply chain domains, adopted by Technical Consulting for client deployment pitches.",
+        "Designed DynamoDB single-table schemas handling 400K+ SKUs with millisecond-level read latency.",
+        "Developed and maintained 50+ backend APIs and services using FastAPI, PostgreSQL, MongoDB, and AWS services."
+      ],
+      highlights: ["Python", "FastAPI", "AWS", "LangGraph",  "PostgreSQL", "AsyncIO","High Level System Design"]
+    },
+    {
       role: "AI Engineer",
       company: "Genpact",
-      period: "Jul 2024 - Present",
+      period: "Jul 2024 - Oct 2026",
       location: "Bengaluru, India",
       achievements: [
         "Led the design and development of a multimodal RAG platform on AWS using Bedrock, OpenSearch, and S3.",
         "Improved image retrieval accuracy by 70% by replacing OCR-based extraction with LLM-generated contextual descriptions.",
         "Engineered hybrid search pipelines (BM25 + Vector Search + Reranking) to improve retrieval quality.",
-        "Designed DynamoDB single-table schemas handling 400K+ SKUs with millisecond-level read latency.",
         "Built fault-tolerant document ingestion pipelines using AWS Lambda, SQS, S3, DLQs, and exponential retry strategies.",
-        "Developed and maintained 50+ backend APIs and services using FastAPI, PostgreSQL, MongoDB, and AWS services."
       ],
       highlights: ["Python", "FastAPI", "AWS", "LangGraph", "OpenSearch", "DynamoDB", "PostgreSQL", "AsyncIO"]
     },
